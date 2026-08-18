@@ -116,19 +116,43 @@ function logoutUser(event) {
 }
 
 function updateAuthNavigation() {
-    const navActions = document.querySelectorAll('.nav-actions');
+    const loggedIn = isUserLoggedIn();
+    const navActionsContainers = document.querySelectorAll('.nav-actions');
 
-    navActions.forEach((container) => {
-        const legacyAuth = container.querySelectorAll('a[href="login.html"], a[href="register.html"], a[data-auth-role], button[data-auth-role], .auth-nav-actions');
-        legacyAuth.forEach((item) => item.remove());
+    navActionsContainers.forEach((container) => {
+        // Remove any loose auth buttons/links directly under .nav-actions
+        const strayAuth = container.querySelectorAll(':scope > a[href*="login"], :scope > a[href*="register"], :scope > a[href*="dashboard"], :scope > button[data-auth-role], :scope > a[data-auth-role]');
+        strayAuth.forEach((item) => item.remove());
 
-        const authGroup = document.createElement('div');
-        authGroup.className = 'auth-nav-actions';
+        // Find or consolidate .auth-nav-actions container
+        const allAuthGroups = container.querySelectorAll('.auth-nav-actions');
+        let authGroup = allAuthGroups[0];
+        if (allAuthGroups.length > 1) {
+            for (let i = 1; i < allAuthGroups.length; i++) {
+                allAuthGroups[i].remove();
+            }
+        }
+
+        if (!authGroup) {
+            authGroup = document.createElement('div');
+            authGroup.className = 'auth-nav-actions';
+            authGroup.setAttribute('data-auth-container', 'true');
+            const mobileToggle = container.querySelector('.mobile-toggle');
+            if (mobileToggle) {
+                container.insertBefore(authGroup, mobileToggle);
+            } else {
+                container.appendChild(authGroup);
+            }
+        }
+
         authGroup.style.display = 'flex';
         authGroup.style.alignItems = 'center';
         authGroup.style.gap = '0.75rem';
 
-        if (isUserLoggedIn()) {
+        // Clear existing content inside authGroup to prevent duplicates
+        authGroup.innerHTML = '';
+
+        if (loggedIn) {
             const dashboardLink = document.createElement('a');
             dashboardLink.href = 'admin-dashboard.html';
             dashboardLink.className = 'btn btn-outline';
@@ -142,6 +166,7 @@ function updateAuthNavigation() {
             logoutBtn.textContent = 'Logout';
             logoutBtn.style.padding = '0.625rem 1.25rem';
             logoutBtn.style.fontSize = '0.875rem';
+            logoutBtn.setAttribute('data-auth-role', 'logout');
             logoutBtn.addEventListener('click', logoutUser);
 
             authGroup.appendChild(dashboardLink);
@@ -151,27 +176,35 @@ function updateAuthNavigation() {
             loginLink.href = 'login.html';
             loginLink.className = 'btn btn-primary';
             loginLink.textContent = 'Login';
-            loginLink.style.padding = '0.625rem 1.25rem';
+            loginLink.style.padding = '0.625rem 1.5rem';
             loginLink.style.fontSize = '0.875rem';
+            loginLink.setAttribute('data-auth-role', 'login');
 
             authGroup.appendChild(loginLink);
-        }
-
-        const mobileToggle = container.querySelector('.mobile-toggle');
-        if (mobileToggle) {
-            container.insertBefore(authGroup, mobileToggle);
-        } else {
-            container.appendChild(authGroup);
         }
     });
 
     const mobileMenuNav = document.querySelector('.mobile-menu-nav');
     if (mobileMenuNav) {
-        const legacyMobileLinks = mobileMenuNav.querySelectorAll('a[href="login.html"], a[href="register.html"], li[data-auth-mobile]');
-        legacyMobileLinks.forEach((item) => item.remove());
+        // Remove all previous mobile auth list items cleanly
+        const existingAuthItems = mobileMenuNav.querySelectorAll('.mobile-auth-item, [data-auth-mobile]');
+        if (existingAuthItems.length > 0) {
+            existingAuthItems.forEach((item) => item.remove());
+        }
 
-        if (isUserLoggedIn()) {
+        // Also clean up any loose un-tagged auth links
+        mobileMenuNav.querySelectorAll('a[href*="login"], a[href*="register"], a[href*="admin-dashboard"]').forEach((link) => {
+            const parentLi = link.closest('li');
+            if (parentLi && parentLi.parentElement === mobileMenuNav) {
+                parentLi.remove();
+            } else {
+                link.remove();
+            }
+        });
+
+        if (loggedIn) {
             const dashboardItem = document.createElement('li');
+            dashboardItem.className = 'mobile-auth-item';
             dashboardItem.setAttribute('data-auth-mobile', 'true');
             const dashboardLink = document.createElement('a');
             dashboardLink.href = 'admin-dashboard.html';
@@ -179,9 +212,10 @@ function updateAuthNavigation() {
             dashboardItem.appendChild(dashboardLink);
 
             const logoutItem = document.createElement('li');
+            logoutItem.className = 'mobile-auth-item';
             logoutItem.setAttribute('data-auth-mobile', 'true');
             const logoutLink = document.createElement('a');
-            logoutLink.href = 'login.html';
+            logoutLink.href = '#';
             logoutLink.textContent = 'Logout';
             logoutLink.addEventListener('click', logoutUser);
             logoutItem.appendChild(logoutLink);
@@ -190,18 +224,20 @@ function updateAuthNavigation() {
             mobileMenuNav.appendChild(logoutItem);
         } else {
             const loginItem = document.createElement('li');
+            loginItem.className = 'mobile-auth-item';
             loginItem.setAttribute('data-auth-mobile', 'true');
             const loginLink = document.createElement('a');
             loginLink.href = 'login.html';
-            loginLink.textContent = 'Login';
+            loginLink.textContent = 'Login / Register';
             loginItem.appendChild(loginLink);
 
             mobileMenuNav.appendChild(loginItem);
         }
     }
 
-    const path = window.location.pathname.split('/').pop();
-    if ((path === 'login.html' || path === 'register.html') && isUserLoggedIn()) {
+    const rawPath = window.location.pathname.replace(/\/$/, '').split('/').pop() || '';
+    const cleanPath = rawPath.replace(/\.html$/, '').toLowerCase();
+    if ((cleanPath === 'login' || cleanPath === 'register') && loggedIn) {
         window.location.href = 'index.html';
     }
 }

@@ -27,7 +27,9 @@
             <div class="nav-actions">
                 <button class="theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></button>
                 <button class="rtl-toggle" title="Toggle RTL"><i class="fas fa-align-right"></i></button>
-                <a href="login.html" class="btn btn-primary" style="padding: 0.625rem 1.5rem; font-size: 0.875rem;">Login</a>
+                <div class="auth-nav-actions" data-auth-container>
+                    <a href="login.html" class="btn btn-primary" style="padding: 0.625rem 1.5rem; font-size: 0.875rem;">Login</a>
+                </div>
                 <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
             </div>
         </div>
@@ -46,7 +48,7 @@
             <li><a href="pricing.html">Pricing</a></li>
             <li><a href="blog.html" class="active">Blog</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="login.html">Login / Register</a></li>
+            <li class="mobile-auth-item" data-auth-mobile="true"><a href="login.html">Login / Register</a></li>
         </ul>
     </div>
     <div class="overlay"></div>
