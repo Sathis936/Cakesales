@@ -119,7 +119,7 @@ function updateAuthNavigation() {
     const navActions = document.querySelectorAll('.nav-actions');
 
     navActions.forEach((container) => {
-        const legacyAuth = container.querySelectorAll('a[href="login.html"], a[href="register.html"], a[data-auth-role], button[data-auth-role]');
+        const legacyAuth = container.querySelectorAll('a[href="login.html"], a[href="register.html"], a[data-auth-role], button[data-auth-role], .auth-nav-actions');
         legacyAuth.forEach((item) => item.remove());
 
         const authGroup = document.createElement('div');
