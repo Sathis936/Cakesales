@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SweetCraft Studio - Baking & Pastry Academy Home</title>
+    <meta name="description"
+        content="Experience the art of baking at SweetCraft Studio. From beginner classes to professional pastry certifications, discover your culinary creativity.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 320px;
+            max-width: 90vw;
+            height: 100vh;
+            background: var(--card-light);
+            z-index: 2000;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 2rem;
+            overflow-y: auto;
+            box-shadow: -10px 0 40px rgba(0, 0, 0, 0.15);
+        }
+
+        body.rtl .mobile-menu {
+            right: auto;
+            left: -100%;
+            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body.dark .mobile-menu {
+            background: var(--card-dark);
+        }
+
+        .mobile-menu.open {
+            right: 0;
+        }
+
+        body.rtl .mobile-menu.open {
+            left: 0;
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(210, 105, 30, 0.1);
+            color: var(--primary);
+            cursor: pointer;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        body.rtl .mobile-menu-close {
+            right: auto;
+            left: 1.5rem;
+        }
+
+        .mobile-menu-close:hover {
+            background: var(--primary);
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .mobile-menu-nav {
+            list-style: none;
+            margin-top: 4rem;
+        }
+
+        .mobile-menu-nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        .mobile-menu-nav a {
+            display: block;
+            padding: 0.875rem 1rem;
+            border-radius: 12px;
+            color: inherit;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-nav a:hover,
+        .mobile-menu-nav a.active {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+        }
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1500;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .toast {
+            position: fixed;
+            top: 100px;
+            right: 2rem;
+            background: var(--card-light);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            z-index: 3000;
+            transform: translateX(120%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            min-width: 280px;
+            border-left: 4px solid var(--primary);
+        }
+
+        body.rtl .toast {
+            right: auto;
+            left: 2rem;
+            transform: translateX(-120%);
+            border-left: none;
+            border-right: 4px solid var(--primary);
+        }
+
+        body.dark .toast {
+            background: var(--card-dark);
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast.success {
+            border-left-color: #10B981;
+        }
+
+        body.rtl .toast.success {
+            border-right-color: #10B981;
+        }
+
+        .toast.error {
+            border-left-color: #EF4444;
+        }
+
+        body.rtl .toast.error {
+            border-right-color: #EF4444;
+        }
+
+        .toast-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .toast.success .toast-icon {
+            background: #10B981;
+        }
+
+        .toast.error .toast-icon {
+            background: #EF4444;
+        }
+
+        @media (max-width: 992px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.75rem;
+            }
+
+            .hero-image-main {
+                height: 400px;
+                font-size: 10rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .course-categories-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 2.25rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .toast {
+                right: 1rem;
+                left: 1rem;
+                min-width: auto;
+            }
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .showcase-item {
+            height: 340px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .showcase-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(74, 55, 40, 0.85) 0%, rgba(74, 55, 40, 0.2) 50%, transparent 100%);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 1;
+        }
+
+        .showcase-item:hover::before {
+            opacity: 1;
+        }
+
+        .showcase-item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .showcase-item:hover .showcase-info {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .showcase-emoji {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9rem;
+            transition: var(--transition);
+        }
+
+        .showcase-item:hover .showcase-emoji {
+            transform: scale(1.15);
+        }
+
+        .showcase-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            color: white;
+            z-index: 2;
+            transform: translateY(25px);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .showcase-info h4 {
+            font-size: 1.375rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .showcase-info p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .showcase-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.4rem 0.875rem;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            z-index: 3;
+        }
+
+        body.rtl .showcase-badge {
+            right: auto;
+            left: 1rem;
+        }
+
+        .course-categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .category-card {
+            padding: 2.5rem 2rem;
+            text-align: left;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        body.rtl .category-card {
+            text-align: right;
+        }
+
+        .category-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-8px);
+        }
+
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .category-level {
+            display: inline-block;
+            padding: 0.375rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .category-card h3 {
+            font-size: 1.375rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .category-card p {
+            opacity: 0.7;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .category-count {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .studio-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(2, 220px);
+            gap: 1rem;
+        }
+
+        .studio-item {
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+        }
+
+        .studio-item:hover {
+            transform: scale(1.03);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .studio-item:nth-child(1) {
+            grid-column: span 3;
+            grid-row: span 2;
+            font-size: 10rem;
+        }
+
+        .studio-item:nth-child(2) {
+            grid-column: span 3;
+        }
+
+        .studio-item:nth-child(3) {
+            grid-column: span 2;
+        }
+
+        .studio-item:nth-child(4) {
+            grid-column: span 2;
+        }
+
+        .studio-item:nth-child(5) {
+            grid-column: span 2;
+        }
+
+        .studio-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(74, 55, 40, 0.6);
+            opacity: 0;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .studio-item:hover .studio-overlay {
+            opacity: 1;
+        }
+
+        .studio-caption {
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .studio-caption h5 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .studio-caption p {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .studio-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto;
+            }
+
+            .studio-item:nth-child(1) {
+                grid-column: span 2;
+                grid-row: span 1;
+                height: 300px;
+                font-size: 8rem;
+            }
+
+            .studio-item:nth-child(2) {
+                grid-column: span 2;
+            }
+
+            .studio-item:nth-child(3),
+            .studio-item:nth-child(4),
+            .studio-item:nth-child(5) {
+                grid-column: span 1;
+                height: 180px;
+                font-size: 4rem;
+            }
+        }
+
+        .workshop-item {
+            display: grid;
+            grid-template-columns: 140px 1fr auto;
+            gap: 2rem;
+            padding: 2rem;
+            border-radius: var(--radius);
+            background: var(--card-light);
+            align-items: center;
+            transition: var(--transition);
+            margin-bottom: 1.25rem;
+            box-shadow: var(--shadow);
+        }
+
+        body.dark .workshop-item {
+            background: var(--card-dark);
+        }
+
+        .workshop-item:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateX(5px);
+        }
+
+        body.rtl .workshop-item:hover {
+            transform: translateX(-5px);
+        }
+
+        .workshop-date {
+            text-align: center;
+            padding: 1.25rem 1rem;
+            border-radius: 16px;
+            color: white;
+        }
+
+        .workshop-day {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .workshop-month {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            opacity: 0.95;
+            margin-top: 0.25rem;
+        }
+
+        .workshop-info h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .workshop-meta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            font-size: 0.875rem;
+            opacity: 0.7;
+            margin-top: 0.75rem;
+        }
+
+        .workshop-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+        }
+
+        .workshop-price {
+            text-align: center;
+        }
+
+        .workshop-price-amount {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .workshop-price-label {
+            font-size: 0.75rem;
+            opacity: 0.6;
+        }
+
+        @media (max-width: 768px) {
+            .workshop-item {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 1.5rem;
+            }
+
+            .workshop-meta {
+                justify-content: center;
+            }
+        }
+
+        .instructors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .instructor-card {
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .instructor-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .instructor-card:hover::before {
+            opacity: 1;
+        }
+
+        .instructor-avatar {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(210, 105, 30, 0.3);
+        }
+
+        .instructor-avatar::after {
+            content: '';
+            position: absolute;
+            width: 110%;
+            height: 110%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="15" r="1.5" fill="rgba(255,255,255,0.3)"/><circle cx="75" cy="25" r="1" fill="rgba(255,255,255,0.25)"/><circle cx="40" cy="85" r="2" fill="rgba(255,255,255,0.2)"/></svg>');
+            background-size: 80px;
+            opacity: 0.5;
+        }
+
+        .instructor-card h3 {
+            font-size: 1.375rem;
+            margin-bottom: 0.375rem;
+        }
+
+        .instructor-title {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .instructor-specialty {
+            display: inline-block;
+            padding: 0.375rem 1rem;
+            background: rgba(210, 105, 30, 0.08);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+        }
+
+        .instructor-bio {
+            opacity: 0.7;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .instructor-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        body.dark .instructor-stats {
+            border-top-color: rgba(255, 255, 255, 0.08);
+        }
+
+        .instructor-stat {
+            text-align: center;
+        }
+
+        .instructor-stat-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .instructor-stat-label {
+            font-size: 0.75rem;
+            opacity: 0.6;
+        }
+
+        .instagram-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(2, 200px);
+            gap: 0.75rem;
+        }
+
+        .instagram-item {
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4.5rem;
+            transition: var(--transition);
+        }
+
+        .instagram-item:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+            font-size: 8rem;
+        }
+
+        .instagram-item:nth-child(4) {
+            grid-column: span 2;
+            grid-row: span 2;
+            font-size: 8rem;
+        }
+
+        .instagram-item:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .instagram-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(210, 105, 30, 0.7), rgba(255, 107, 107, 0.7));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .instagram-item:hover::before {
+            opacity: 1;
+        }
+
+        .instagram-action {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            color: white;
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 2;
+        }
+
+        .instagram-item:hover .instagram-action {
+            opacity: 1;
+        }
+
+        .instagram-action span {
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+            font-weight: 700;
+        }
+
+        @media (max-width: 992px) {
+            .instagram-grid {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: auto;
+            }
+
+            .instagram-item,
+            .instagram-item:nth-child(1),
+            .instagram-item:nth-child(4) {
+                grid-column: span 1;
+                grid-row: span 1;
+                height: 180px;
+                font-size: 4rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .instagram-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .instagram-item {
+                height: 160px;
+                font-size: 3.5rem;
+            }
+        }
+
+        .hero-image-main.hero-studio {
+            background: linear-gradient(135deg, #DEB887 0%, #D2691E 50%, #8B4513 100%);
+        }
+
+        @media (max-width: 576px) {
+            .hero { padding: 5.5rem 0 3rem; }
+            .hero-image-main { height: 250px; }
+            .showcase-grid, .instructors-grid { grid-template-columns: 1fr; }
+            .workshop-item { padding: 1.25rem; }
+            .workshop-info h4 { font-size: 1.1rem; }
+            .workshop-meta { gap: 0.6rem; }
+            .instagram-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🥐</span>
+                SweetCraft
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home 1</a></li>
+                <li><a href="index-2.html" class="active">Home 2</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Courses</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+                <button class="rtl-toggle" title="Toggle RTL"><i class="fas fa-align-right"></i></button>
+                <a href="login.html" class="btn btn-primary"
+                    style="padding: 0.625rem 1.5rem; font-size: 0.875rem;">Login</a>
+                <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu">
+        <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
+        <ul class="mobile-menu-nav">
+            <li><a href="index.html">Home 1</a></li>
+            <li><a href="index-2.html" class="active">Home 2</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Courses</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="vouchers.html">Gift Vouchers</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login / Register</a></li>
+        </ul>
+    </div>
+    <div class="overlay"></div>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <span class="section-tag">🍰 Welcome to SweetCraft Pastry Studio</span>
+                    <h1>Where Flour Meets <span>Passion & Creativity</span> 🍞</h1>
+                    <p>Step into our warm, aromatic baking studio and discover the magic of artisan pastry. From flaky
+                        croissants to elegant wedding cakes, learn from master bakers in a cozy, inspiring environment
+                        designed for culinary dreams 🥐🧁🎂</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="viewService('Artisan Croissant Workshop')">
+                            <i class="fas fa-book-open"></i>
+                            Explore Baking Classes
+                        </button>
+                        <a href="contact.html" class="btn btn-outline">
+                            <i class="fas fa-door-open"></i>
+                            Book a Studio Tour
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number" data-target="3200">3,200+</div>
+                            <div class="stat-label">Pastry Graduates 🎓</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">75+</div>
+                            <div class="stat-label">Baking Programs 📚</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Master Chefs 👨‍🍳</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="hero-image-main hero-studio">
+                        <img src="images/tiered_wedding_cake.jpg" alt="SweetCraft Pastry Studio"
+                            style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius);">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+
+            <div class="section-header">
+                <span class="section-tag">✨ Featured Student Creations</span>
+
+                <h2 class="section-title">
+                    Mouthwatering Masterpieces
+                </h2>
+
+                <p class="section-subtitle">
+                    Every creation tells a story of dedication, technique, and pure passion for the pastry arts.
+                    Here's what our talented students have been baking up.
+                </p>
+            </div>
+
+            <div class="showcase-grid">
+
+                <!-- 1. Croissants -->
+                <div class="showcase-item" onclick="viewGallery('Golden Croissants')">
+
+                    <span class="showcase-badge">🏆 Best in Show</span>
+
+                    <div class="showcase-emoji">
+                        <img src="images/services (1).jpg" alt="Golden Laminated Croissants">
+                    </div>
+
+                    <div class="showcase-info">
+                        <h4>Golden Laminated Croissants</h4>
+                        <p>By Emma L. - Intermediate Pastry</p>
+                    </div>
+
+                </div>
+
+
+                <!-- 2. Sourdough -->
+                <div class="showcase-item" onclick="viewGallery('Rustic Sourdough')">
+
+                    <div class="showcase-emoji">
+                        <img src="images/services (2).jpg" alt="Rustic Country Sourdough">
+                    </div>
+
+                    <div class="showcase-info">
+                        <h4>Rustic Country Sourdough</h4>
+                        <p>By Michael T. - Artisan Bread</p>
+                    </div>
+
+                </div>
+
+
+                <!-- 3. Wedding Cake -->
+                <div class="showcase-item" onclick="viewGallery('Wedding Cake Elegance')">
+
+                    <span class="showcase-badge">⭐ 5-Star</span>
+
+                    <div class="showcase-emoji">
+                        <img src="images/services (3).jpg" alt="Three-Tier Wedding Cake">
+                    </div>
+
+                    <div class="showcase-info">
+                        <h4>Three-Tier Wedding Cake</h4>
+                        <p>By Priya S. - Advanced Cake Design</p>
+                    </div>
+
+                </div>
+
+
+                <!-- 4. Macarons -->
+                <div class="showcase-item" onclick="viewGallery('French Macaron Tower')">
+
+                    <div class="showcase-emoji">
+                        <img src="images/services (4).jpg" alt="French Macaron Tower">
+                    </div>
+
+                    <div class="showcase-info">
+                        <h4>French Macaron Tower</h4>
+                        <p>By Lucas P. - Patisserie Excellence</p>
+                    </div>
+
+                </div>
+
+
+                <!-- 5. Chocolate Eclairs -->
+                <div class="showcase-item" onclick="viewGallery('Chocolate Eclairs')">
+
+                    <span class="showcase-badge">🔥 Trending</span>
+
+                    <div class="showcase-emoji">
+                        <img src="images/services (5).jpg" alt="Classic Chocolate Éclairs">
+                    </div>
+
+                    <div class="showcase-info">
+                        <h4>Classic Chocolate Éclairs</h4>
+                        <p>By Sophia R. - French Pastry</p>
+                    </div>
+
+                </div>
+
+
+                <!-- 6. Fruit Tart -->
+                <div class="showcase-item" onclick="viewGallery('Fruit Tart Collection')">
+
+                    <div class="showcase-emoji">
+                        <img src="images/services (6).jpg" alt="Seasonal Fruit Tart Collection">
+                    </div>
+
+                    <div class="showcase-info">
+                        <h4>Seasonal Fruit Tart Collection</h4>
+                        <p>By Diego M. - Tarts & Pies</p>
+                    </div>
+
+                </div>
+
+
+                <!-- 7. Baguettes -->
+                <div class="showcase-item" onclick="viewGallery('Artisan Baguettes')">
+
+                    <div class="showcase-emoji">
+                        <img src="images/blueberry_cheesecake.jpg" alt="Traditional Baguettes">
+                    </div>
+
+                    <div class="showcase-info">
+                        <h4>Traditional Baguettes</h4>
+                        <p>By Olivier B. - Boulangerie 101</p>
+                    </div>
+
+                </div>
+
+
+                <!-- 8. Donuts -->
+                <div class="showcase-item" onclick="viewGallery('Gourmet Donuts')">
+
+                    <span class="showcase-badge">💖 Fan Favorite</span>
+
+                    <div class="showcase-emoji">
+                        <img src="images/chocolate.jpg" alt="Gourmet Glazed Donuts">
+                    </div>
+
+                    <div class="showcase-info">
+                        <h4>Gourmet Glazed Donuts</h4>
+                        <p>By Nina K. - Modern Pastry</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Gallery Button -->
+            <div style="text-align: center; margin-top: 3rem;">
+
+                <a href="gallery.html" class="btn btn-outline">
+                    <i class="fas fa-images"></i>
+                    View Full Gallery 🍪
+                </a>
+
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <section class="section"
+        style="background: linear-gradient(180deg, transparent, rgba(139, 69, 19, 0.04), transparent);">
+        <div class="container">
+            <div class="section-header">
+                <!-- <span class="section-tag">📅 Upcoming Hands-On Workshops</span> -->
+                <h2 class="section-title">Join Us This Season 🥐🍂</h2>
+                <p class="section-subtitle">Limited spots available for our most popular themed workshops. Book early
+                    and secure your apron!</p>
+            </div>
+            <div style="max-width: 900px; margin: 0 auto;">
+                <div class="workshop-item">
+                    <div class="workshop-date" style="background: linear-gradient(135deg, #D2691E, #FF6B6B);">
+                        <div class="workshop-day">22</div>
+                        <div class="workshop-month">Aug 2026</div>
+                    </div>
+                    <div class="workshop-info">
+                        <h4>Sourdough Masterclass: Rustic Country Breads 🥖</h4>
+                        <p style="opacity: 0.75; font-size: 0.95rem;">Learn the ancient art of sourdough culture,
+                            feeding schedules, shaping techniques, and the secrets to that perfect open crumb.</p>
+                        <div class="workshop-meta">
+                            <span><i class="fas fa-clock"></i> 9:00 AM - 3:00 PM</span>
+                            <span><i class="fas fa-user-tie"></i> Chef Antoine Dupont</span>
+                            <span><i class="fas fa-chair"></i> 3 of 8 Spots Left</span>
+                        </div>
+                    </div>
+                    <div class="workshop-price">
+                        <div class="workshop-price-amount">₹189</div>
+                        <div class="workshop-price-label">per person</div>
+                        <button class="btn btn-primary"
+                            style="margin-top: 1rem; padding: 0.625rem 1.25rem; font-size: 0.85rem;"
+                            onclick="enrollCourse('Sourdough Masterclass')">
+                            <i class="fas fa-ticket-alt"></i> Enroll
+                        </button>
+                    </div>
+                </div>
+
+                <div class="workshop-item">
+                    <div class="workshop-date" style="background: linear-gradient(135deg, #DEB887, #CD853F);">
+                        <div class="workshop-day">29</div>
+                        <div class="workshop-month">Aug 2026</div>
+                    </div>
+                    <div class="workshop-info">
+                        <h4>French Croissant & Viennoiserie Intensive 🥐</h4>
+                        <p style="opacity: 0.75; font-size: 0.95rem;">Two full days mastering laminated doughs: butter
+                            block lamination, pain au chocolat, pains aux raisins, and more.</p>
+                        <div class="workshop-meta">
+                            <span><i class="fas fa-clock"></i> Sat-Sun 8AM-4PM</span>
+                            <span><i class="fas fa-user-tie"></i> Chef Marie Rousseau</span>
+                            <span><i class="fas fa-chair"></i> 1 of 6 Spots Left</span>
+                        </div>
+                    </div>
+                    <div class="workshop-price">
+                        <div class="workshop-price-amount">₹349</div>
+                        <div class="workshop-price-label">2-Day Session</div>
+                        <button class="btn btn-primary"
+                            style="margin-top: 1rem; padding: 0.625rem 1.25rem; font-size: 0.85rem;"
+                            onclick="enrollCourse('Croissant Intensive')">
+                            <i class="fas fa-ticket-alt"></i> Enroll
+                        </button>
+                    </div>
+                </div>
+
+                <div class="workshop-item">
+                    <div class="workshop-date" style="background: linear-gradient(135deg, #CD853F, #8B4513);">
+                        <div class="workshop-day">05</div>
+                        <div class="workshop-month">Sep 2026</div>
+                    </div>
+                    <div class="workshop-info">
+                        <h4>Autumn Cake Decorating: Pumpkins & Florals 🎂🍁</h4>
+                        <p style="opacity: 0.75; font-size: 0.95rem;">Get ready for fall with this seasonal cake class
+                            featuring sugar pumpkins, autumn leaves, and textured buttercream techniques.</p>
+                        <div class="workshop-meta">
+                            <span><i class="fas fa-clock"></i> 10:00 AM - 4:00 PM</span>
+                            <span><i class="fas fa-user-tie"></i> Chef Elena Rossi</span>
+                            <span><i class="fas fa-chair"></i> 5 of 8 Spots Left</span>
+                        </div>
+                    </div>
+                    <div class="workshop-price">
+                        <div class="workshop-price-amount">₹219</div>
+                        <div class="workshop-price-label">per person</div>
+                        <button class="btn btn-primary"
+                            style="margin-top: 1rem; padding: 0.625rem 1.25rem; font-size: 0.85rem;"
+                            onclick="enrollCourse('Autumn Cake Decorating')">
+                            <i class="fas fa-ticket-alt"></i> Enroll
+                        </button>
+                    </div>
+                </div>
+
+                <div class="workshop-item">
+                    <div class="workshop-date" style="background: linear-gradient(135deg, #8B4513, #A0522D);">
+                        <div class="workshop-day">12</div>
+                        <div class="workshop-month">Sep 2026</div>
+                    </div>
+                    <div class="workshop-info">
+                        <h4>Chocolate Bonbon & Truffle Making Workshop 🍫</h4>
+                        <p style="opacity: 0.75; font-size: 0.95rem;">Temper couverture chocolate, create hand-painted
+                            shells, flavor ganaches, and roll exquisite truffles like a professional chocolatier.</p>
+                        <div class="workshop-meta">
+                            <span><i class="fas fa-clock"></i> 2:00 PM - 8:00 PM</span>
+                            <span><i class="fas fa-user-tie"></i> Chef Javier Morales</span>
+                            <span><i class="fas fa-chair"></i> Sold Out! Waitlist</span>
+                        </div>
+                    </div>
+                    <div class="workshop-price">
+                        <div class="workshop-price-amount">₹259</div>
+                        <div class="workshop-price-label">per person</div>
+                        <button class="btn btn-outline"
+                            style="margin-top: 1rem; padding: 0.625rem 1.25rem; font-size: 0.85rem;"
+                            onclick="showToast('Added to waitlist!', 'info')">
+                            <i class="fas fa-list"></i> Waitlist
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="schedule.html" class="btn btn-outline">
+                    <i class="fas fa-calendar-alt"></i>
+                    View Full Workshop Schedule 📅
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">👨‍🍳 Meet Our Master Instructors</span>
+                <h2 class="section-title">Learn From the Best in the Industry 🏆</h2>
+                <p class="section-subtitle">World-class pastry chefs and bakers with decades of experience in
+                    Michelin-starred kitchens, Parisian patisseries, and international competitions.</p>
+            </div>
+            <div class="instructors-grid">
+                <div class="card instructor-card">
+                    <div class="instructor-avatar" 
+                    style="background: linear-gradient(135deg, #D2691E, #FF6B6B);">
+                        <img src="images/chef1.jpg" alt="Chef Antoine Dupont" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <h3>Chef Antoine Dupont</h3>
+                    <div class="instructor-title">Head of Boulangerie</div>
+                    <span class="instructor-specialty">🥖 Artisan Bread & Viennoiserie</span>
+                    <p class="instructor-bio">Former head baker at Maison Ladurée, Paris. World Bread Awards 2024 Gold
+                        Medalist with 20+ years of perfecting the sourdough craft.</p>
+                    <div class="instructor-stats">
+                        <div class="instructor-stat">
+                            <div class="instructor-stat-value">22+</div>
+                            <div class="instructor-stat-label">Years Exp</div>
+                        </div>
+                        <div class="instructor-stat">
+                            <div class="instructor-stat-value">14</div>
+                            <div class="instructor-stat-label">Awards</div>
+                        </div>
+                        <div class="instructor-stat">
+                            <div class="instructor-stat-value">1.2K</div>
+                            <div class="instructor-stat-label">Students</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card instructor-card">
+                    <div class="instructor-avatar" style="background: linear-gradient(135deg, #DEB887, #CD853F);">
+                        <img src="images/chef2.jpg" alt="Chef Marie Rousseau" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <h3>Chef Marie Rousseau</h3>
+                    <div class="instructor-title">Dean of Patisserie</div>
+                    <span class="instructor-specialty">🥐 French Pastry & Macarons</span>
+                    <p class="instructor-bio">Patisserie Cordons Bleus graduate with 18 years at Pierre Hermé. Creator
+                        of our signature croissant lamination method.</p>
+                    <div class="instructor-stats">
+                        <div class="instructor-stat">
+                            <div class="instructor-stat-value">18+</div>
+                            <div class="instructor-stat-label">Years Exp</div>
+                        </div>
+                        <div class="instructor-stat">
+                            <div class="instructor-stat-value">9</div>
+                            <div class="instructor-stat-label">Awards</div>
+                        </div>
+                        <div class="instructor-stat">
+                            <div class="instructor-stat-value">950+</div>
+                            <div class="instructor-stat-label">Students</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card instructor-card">
+                    <div class="instructor-avatar" style="background: linear-gradient(135deg, #FFB6C1, #FF6B6B);">
+                        <img src="images/chef3.jpg" alt="Chef Elena Rossi" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <h3>Chef Elena Rossi</h3>
+                    <div class="instructor-title">Cake Design Director</div>
+                    <span class="instructor-specialty">🎂 Wedding Cakes & Sugar Art</span>
+                    <p class="instructor-bio">Celebrated cake artist featured in Vogue Weddings and Bridal Magazine.
+                        Winner of Cake Masters International 2023.</p>
+                    <div class="instructor-stats">
+                        <div class="instructor-stat">
+                            <div class="instructor-stat-value">15+</div>
+                            <div class="instructor-stat-label">Years Exp</div>
+                        </div>
+                        <div class="instructor-stat">
+                            <div class="instructor-stat-value">11</div>
+                            <div class="instructor-stat-label">Awards</div>
+                        </div>
+                        <div class="instructor-stat">
+                            <div class="instructor-stat-value">780+</div>
+                            <div class="instructor-stat-label">Students</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card instructor-card">
+                    <div class="instructor-avatar" style="background: linear-gradient(135deg, #8B4513, #A0522D);">
+                        <img src="images/chef4.jpg" alt="Chef Javier Morales" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <h3>Chef Javier Morales</h3>
+                    <div class="instructor-title">Chocolate Master</div>
+                    <span class="instructor-specialty">🍫 Chocolate & Confections</span>
+                    <p class="instructor-bio">Spanish master chocolatier trained at Valrhona, France. Bean-to-bar expert
+                        and judge at World Chocolate Masters.</p>
+                    <div class="instructor-stats">
+                        <div class="instructor-stat">
+                            <div class="instructor-stat-value">19+</div>
+                            <div class="instructor-stat-label">Years Exp</div>
+                        </div>
+                        <div class="instructor-stat">
+                            <div class="instructor-stat-value">7</div>
+                            <div class="instructor-stat-label">Awards</div>
+                        </div>
+                        <div class="instructor-stat">
+                            <div class="instructor-stat-value">650+</div>
+                            <div class="instructor-stat-label">Students</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <section class="section">
+        <div class="container">
+            <div class="cta-section">
+                <span class="section-tag">🏠 Come Visit Our Kitchen</span>
+                <h2 class="section-title">Book a Studio Tour & Reserve Your Baking Journey 🥐✨</h2>
+                <p class="section-subtitle" style="margin-bottom: 2.5rem; color: white;">
+                    Experience the warmth and aromas of our professional studio firsthand! Meet our chefs, see our
+                    facilities, and enjoy complimentary fresh-baked treats. Every tour guest gets 15% off their first
+                    class booking! 🧁🍫
+                </p>
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; max-width: 850px; margin: 0 auto 2.5rem; position: relative; z-index: 1;">
+                    <div
+                        style="background: rgba(255,255,255,0.15); border-radius: 16px; padding: 1.75rem; backdrop-filter: blur(10px);">
+                        <div style="font-size: 2.25rem; margin-bottom: 0.5rem;">🚪</div>
+                        <h4 style="color: white; margin-bottom: 0.5rem;">Free Studio Tour</h4>
+                        <p style="color: rgba(255,255,255,0.85); font-size: 0.9rem; margin-bottom: 0;">Guided
+                            walkthrough + treat tasting. Mon-Sat 10AM-5PM.</p>
+                    </div>
+                    <div
+                        style="background: rgba(255,255,255,0.15); border-radius: 16px; padding: 1.75rem; backdrop-filter: blur(10px);">
+                        <div style="font-size: 2.25rem; margin-bottom: 0.5rem;">🎟️</div>
+                        <h4 style="color: white; margin-bottom: 0.5rem;">Private Classes</h4>
+                        <p style="color: rgba(255,255,255,0.85); font-size: 0.9rem; margin-bottom: 0;">Custom workshops
+                            for birthdays, bachelorette, team events.</p>
+                    </div>
+                    <div
+                        style="background: rgba(255,255,255,0.15); border-radius: 16px; padding: 1.75rem; backdrop-filter: blur(10px);">
+                        <div style="font-size: 2.25rem; margin-bottom: 0.5rem;">💝</div>
+                        <h4 style="color: white; margin-bottom: 0.5rem;">Gift Vouchers</h4>
+                        <p style="color: rgba(255,255,255,0.85); font-size: 0.9rem; margin-bottom: 0;">The perfect gift
+                            for every baker in your life. Any amount.</p>
+                    </div>
+                </div>
+                <div
+                    style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1;">
+                    <a href="contact.html" class="btn btn-primary">
+                        <i class="fas fa-calendar-check"></i>
+                        Book My Studio Tour 🗓️
+                    </a>
+
+                    <a href="vouchers.html" class="btn btn-outline">
+                        <i class="fas fa-gift"></i>
+                        Buy Gift Voucher 💝
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon">🥐</span>
+                        SweetCraft
+                    </a>
+                    <p>Where passion meets pastry. Join thousands of students who have transformed their baking skills
+                        with our expert-led courses. Made with butter, flour, and a whole lot of love 🧁.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <!-- <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a> -->
+                        <a href="#" title="Pinterest"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index-2.html">Home</a></li>
+                        <li><a href="about.html">Our Studio</a></li>
+                        <li><a href="services.html">Baking Courses</a></li>
+                        <li><a href="schedule.html">Workshops</a></li>
+                        <li><a href="blog.html">Baking Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Discover</h4>
+                    <ul class="footer-links">
+                        <li><a href="gallery.html">Creations Gallery</a></li>
+                        <li><a href="vouchers.html">Gift Vouchers</a></li>
+                        <li><a href="pricing.html">Pricing Plans</a></li>
+                        <li><a href="coming-soon.html">Private Events</a></li>
+                        <li><a href="404.html">Career Program</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Visit the Studio</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 0.5rem; color: var(--primary);"></i>
+                            456 Pastry Lane, Bakery District, NY 10001</li>
+                        <li><i class="fas fa-phone" style="margin-right: 0.5rem; color: var(--primary);"></i> +1 (555)
+                            987-BAKE</li>
+                        <li><i class="fas fa-envelope" style="margin-right: 0.5rem; color: var(--primary);"></i>
+                            hello@sweetcraftstudio.com</li>
+                        <li><i class="fas fa-clock" style="margin-right: 0.5rem; color: var(--primary);"></i> Tue-Sun:
+                            7AM - 9PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SweetCraft Pastry Studio. All rights reserved. Baked with ❤️, butter 🧈, and French flour
+                    🌾.</p>
+                <div>
+                    <a href="#" style="color: inherit; text-decoration: none; margin-left: 1.5rem;">Privacy Policy</a>
+                    <a href="#" style="color: inherit; text-decoration: none; margin-left: 1.5rem;">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

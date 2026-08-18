@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses & Services - SweetCraft Baking Classes</title>
+    <meta name="description" content="Explore SweetCraft's complete range of baking courses from beginner to professional level. Find your perfect pastry class today.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🥐</span>
+                SweetCraft
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index-2.html">Studio</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html" class="active">Courses</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+                <button class="rtl-toggle" title="Toggle RTL"><i class="fas fa-align-right"></i></button>
+                <a href="login.html" class="btn btn-primary" style="padding: 0.625rem 1.5rem; font-size: 0.875rem;">Login</a>
+                <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu">
+        <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
+        <ul class="mobile-menu-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index-2.html">Baking Studio</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html" class="active">Courses</a></li>
+            <li><a href="schedule.html">Class Schedule</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="vouchers.html">Gift Vouchers</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login / Register</a></li>
+        </ul>
+    </div>
+    <div class="overlay"></div>
+
+    <section class="page-header">
+        <span class="section-tag">📚 Our Full Course Catalog</span>
+        <h1>Baking & Pastry Courses for Every Level</h1>
+        <p>From first-time kneaders to career-changing professionals — browse our complete curriculum designed by award-winning pastry chefs.</p>
+        <div class="breadcrumb">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <span><i class="fas fa-chevron-right"></i></span>
+            <span>Courses</span>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="filters">
+                <div class="filter-tabs">
+                    <button class="filter-tab active">All</button>
+                    <button class="filter-tab">Beginner</button>
+                    <button class="filter-tab">Intermediate</button>
+                    <button class="filter-tab">Advanced</button>
+                    <button class="filter-tab">Professional</button>
+                </div>
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search courses, recipes, chefs...">
+                </div>
+            </div>
+
+            <div class="courses-grid">
+                <div class="card course-card" onclick="viewService('Intro to Baking Fundamentals')">
+                    <div class="course-image">
+                        <img src="images/quality_ingredients.jpg" alt="Baking fundamentals course">
+                        <span class="course-badge">NEW</span>
+                        <span class="course-level-badge">Beginner</span>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 2 Weeks</span>
+                            <span><i class="fas fa-users"></i> 12 Seats</span>
+                            <span><i class="fas fa-play-circle"></i> 8 Lessons</span>
+                        </div>
+                        <h3 class="course-title">Intro to Baking Fundamentals</h3>
+                        <p class="course-description">Perfect for complete beginners. Learn measuring, mixing, and basic baking techniques with confidence-building recipes.</p>
+                        <div class="course-footer">
+                            <div class="course-price">
+                                <span class="current-price">₹149</span>
+                                <span class="old-price">₹199</span>
+                            </div>
+                            <button class="btn btn-primary" style="padding: 0.625rem 1.25rem; font-size: 0.85rem;" onclick="event.stopPropagation(); enrollCourse('Intro to Baking Fundamentals')">Enroll Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card course-card" onclick="viewService('Artisan Bread Making')">
+                    <div class="course-image">
+                        <img src="images/coures1 (7).jpg" alt="Artisan bread making course">
+                        <span class="course-badge">HOT</span>
+                        <span class="course-level-badge">Beginner</span>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 4 Weeks</span>
+                            <span><i class="fas fa-users"></i> 8 Seats</span>
+                            <span><i class="fas fa-play-circle"></i> 12 Lessons</span>
+                        </div>
+                        <h3 class="course-title">Artisan Bread Making</h3>
+                        <p class="course-description">Master sourdough, baguettes, brioche, and more with our foundational bread-making program taught by a Parisian bread master.</p>
+                        <div class="course-footer">
+                            <div class="course-price">
+                                <span class="current-price">₹299</span>
+                                <span class="old-price">₹399</span>
+                            </div>
+                            <button class="btn btn-primary" style="padding: 0.625rem 1.25rem; font-size: 0.85rem;" onclick="event.stopPropagation(); enrollCourse('Artisan Bread Making')">Enroll Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card course-card" onclick="viewService('Cookies & Brownies Bootcamp')">
+                    <div class="course-image">
+                        <img src="images/chocolate.jpg" alt="Cookies and brownies bootcamp course">
+                        <span class="course-level-badge">Beginner</span>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 3 Weeks</span>
+                            <span><i class="fas fa-users"></i> 10 Seats</span>
+                            <span><i class="fas fa-play-circle"></i> 9 Lessons</span>
+                        </div>
+                        <h3 class="course-title">Cookies & Brownies Bootcamp</h3>
+                        <p class="course-description">Perfect chocolate chip cookies, fudgy brownies, buttery shortbread, and 12+ more recipes everyone will beg for.</p>
+                        <div class="course-footer">
+                            <div class="course-price">
+                                <span class="current-price">₹199</span>
+                            </div>
+                            <button class="btn btn-primary" style="padding: 0.625rem 1.25rem; font-size: 0.85rem;" onclick="event.stopPropagation(); enrollCourse('Cookies & Brownies Bootcamp')">Enroll Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card course-card" onclick="viewService('French Pastry Essentials')">
+                    <div class="course-image">
+                        <img src="images/coures1 (1).jpg" alt="French pastry essentials course">
+                        <span class="course-level-badge">Intermediate</span>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 6 Weeks</span>
+                            <span><i class="fas fa-users"></i> 6 Seats</span>
+                            <span><i class="fas fa-play-circle"></i> 18 Lessons</span>
+                        </div>
+                        <h3 class="course-title">French Pastry Essentials</h3>
+                        <p class="course-description">Perfect croissants, éclairs, tarts, and macarons with classic French techniques taught by our Paris-trained chef.</p>
+                        <div class="course-footer">
+                            <div class="course-price">
+                                <span class="current-price">₹499</span>
+                            </div>
+                            <button class="btn btn-primary" style="padding: 0.625rem 1.25rem; font-size: 0.85rem;" onclick="event.stopPropagation(); enrollCourse('French Pastry Essentials')">Enroll Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card course-card" onclick="viewService('Cake Decorating Masterclass')">
+                    <div class="course-image">
+                        <img src="images/coures1 (2).jpg" alt="Cake decorating masterclass course">
+                        <span class="course-badge">POPULAR</span>
+                        <span class="course-level-badge">Intermediate</span>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 5 Weeks</span>
+                            <span><i class="fas fa-users"></i> 8 Seats</span>
+                            <span><i class="fas fa-play-circle"></i> 15 Lessons</span>
+                        </div>
+                        <h3 class="course-title">Cake Decorating Masterclass</h3>
+                        <p class="course-description">From smooth buttercream to stunning fondant work, piping borders, and sculpted 3D cakes that wow every crowd.</p>
+                        <div class="course-footer">
+                            <div class="course-price">
+                                <span class="current-price">₹399</span>
+                                <span class="old-price">₹499</span>
+                            </div>
+                            <button class="btn btn-primary" style="padding: 0.625rem 1.25rem; font-size: 0.85rem;" onclick="event.stopPropagation(); enrollCourse('Cake Decorating Masterclass')">Enroll Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card course-card" onclick="viewService('Chocolate & Confections')">
+                    <div class="course-image">
+                        <img src="images/coures1 (3).jpg" alt="Chocolate and confections course">
+                        <span class="course-level-badge">Advanced</span>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 7 Weeks</span>
+                            <span><i class="fas fa-users"></i> 6 Seats</span>
+                            <span><i class="fas fa-play-circle"></i> 21 Lessons</span>
+                        </div>
+                        <h3 class="course-title">Chocolate & Confections</h3>
+                        <p class="course-description">Tempering, bonbons, truffles, pralines, and molded chocolates. Professional-level techniques for silky, glossy results.</p>
+                        <div class="course-footer">
+                            <div class="course-price">
+                                <span class="current-price">₹599</span>
+                            </div>
+                            <button class="btn btn-primary" style="padding: 0.625rem 1.25rem; font-size: 0.85rem;" onclick="event.stopPropagation(); enrollCourse('Chocolate & Confections')">Enroll Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card course-card" onclick="viewService('Wedding Cake Mastery')">
+                    <div class="course-image">
+                        <img src="images/coures1 (4).jpg" alt="Wedding cake mastery course">
+                        <span class="course-badge">TRENDING</span>
+                        <span class="course-level-badge">Advanced</span>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 8 Weeks</span>
+                            <span><i class="fas fa-users"></i> 6 Seats</span>
+                            <span><i class="fas fa-play-circle"></i> 24 Lessons</span>
+                        </div>
+                        <h3 class="course-title">Wedding Cake Mastery</h3>
+                        <p class="course-description">Create stunning multi-tier cakes with sugar flowers, fondant draping, edible lace, and structural engineering secrets.</p>
+                        <div class="course-footer">
+                            <div class="course-price">
+                                <span class="current-price">₹799</span>
+                                <span class="old-price">₹999</span>
+                            </div>
+                            <button class="btn btn-primary" style="padding: 0.625rem 1.25rem; font-size: 0.85rem;" onclick="event.stopPropagation(); enrollCourse('Wedding Cake Mastery')">Enroll Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card course-card" onclick="viewService('Professional Pastry Diploma')">
+                    <div class="course-image">
+                        <img src="images/cakes.avif" alt="Professional pastry diploma course">
+                        <span class="course-badge">PRO</span>
+                        <span class="course-level-badge">Professional</span>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 16 Weeks</span>
+                            <span><i class="fas fa-users"></i> 4 Seats</span>
+                            <span><i class="fas fa-play-circle"></i> 60 Lessons</span>
+                        </div>
+                        <h3 class="course-title">Professional Pastry Diploma</h3>
+                        <p class="course-description">Our flagship career program. Comprehensive training covering every pastry discipline with industry certification and job placement support.</p>
+                        <div class="course-footer">
+                            <div class="course-price">
+                                <span class="current-price">₹2,499</span>
+                                <span class="old-price">₹2,999</span>
+                            </div>
+                            <button class="btn btn-primary" style="padding: 0.625rem 1.25rem; font-size: 0.85rem;" onclick="event.stopPropagation(); enrollCourse('Professional Pastry Diploma')">Enroll Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card course-card" onclick="viewService('Plated Desserts & Restaurant Service')">
+                    <div class="course-image">
+                        <img src="images/blueberry_cheesecake.jpg" alt="Plated desserts and restaurant service course">
+                        <span class="course-level-badge">Professional</span>
+                    </div>
+                    <div class="course-content">
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> 10 Weeks</span>
+                            <span><i class="fas fa-users"></i> 5 Seats</span>
+                            <span><i class="fas fa-play-circle"></i> 30 Lessons</span>
+                        </div>
+                        <h3 class="course-title">Plated Desserts & Restaurant Service</h3>
+                        <p class="course-description">Fine-dining level plated desserts, modernist techniques, kitchen brigade workflow, and Michelin-level service standards.</p>
+                        <div class="course-footer">
+                            <div class="course-price">
+                                <span class="current-price">₹1,299</span>
+                            </div>
+                            <button class="btn btn-primary" style="padding: 0.625rem 1.25rem; font-size: 0.85rem;" onclick="event.stopPropagation(); enrollCourse('Plated Desserts & Restaurant Service')">Enroll Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: linear-gradient(180deg, transparent, rgba(210,105,30,0.03));">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">❓ Frequently Asked Questions</span>
+                <h2 class="section-title">Got Baking Questions? We've Got Answers</h2>
+                <p class="section-subtitle">Everything you need to know before joining our courses. Still unsure? Reach out — our team loves talking pastry!</p>
+            </div>
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>I'm a complete beginner who's never baked before. Which course should I start with?</span>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Great question! We'd absolutely recommend starting with our <strong>Intro to Baking Fundamentals</strong> course. It's designed specifically for total beginners with zero experience. We start from absolute basics — how to measure correctly, read a recipe, use oven settings, and work with common ingredients. The atmosphere is supportive, no silly questions allowed! After that, most students move into Artisan Bread Making or Cookies & Brownies Bootcamp to build confidence with fun, rewarding recipes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do I need to bring my own ingredients or tools to class?</span>
+                        <i class="fas fa-plus"></i></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Nope! We provide absolutely everything — all professional-grade ingredients (the same premium imported brands our chefs use professionally), all equipment, mixing bowls, tools, aprons, and even recipe cards you can take home. You just need to show up ready to learn (and ready to eat your delicious creations at the end of each class!). For longer programs, we do provide a list of recommended home tools if you'd like to practice between classes, but that's completely optional.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What's the class size and will I get individual attention?</span>
+                        <i class="fas fa-plus"></i></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>We intentionally keep our classes very small — <strong>max 8-12 students per class</strong> depending on the program (Professional courses are capped at just 4-6 students for ultra-personalized training). This ensures every student gets plenty of one-on-one time with the chef. Our instructors walk around constantly during hands-on sessions to correct technique, answer questions, and make sure nobody gets stuck. It's basically private training at group prices!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you offer payment plans or scholarships for longer programs?</span>
+                        <i class="fas fa-plus"></i></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Absolutely! We believe financial circumstances shouldn't stand in the way of a great baking education. For our Professional Pastry Diploma and other longer programs, we offer <strong>0% interest payment plans</strong> spread over 6 to 12 months with no credit check required. We also have a limited number of <strong>partial scholarships</strong> each quarter for passionate bakers who demonstrate financial need or exceptional creativity. Email us at hello@sweetcraft.com to learn more — we'd love to help you find a way in!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you accommodate dietary restrictions like gluten-free or vegan baking?</span>
+                        <i class="fas fa-plus"></i></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Yes, absolutely — and our dietary-option recipes are genuinely delicious, not afterthoughts! We can accommodate <strong>gluten-free, dairy-free, vegan, nut-free, and kosher/halal diets</strong> in nearly all of our courses. Just let us know your dietary needs when you enroll (at least 5 days before class starts so our chefs can prep correctly). We even offer a dedicated 4-week Gluten-Free & Vegan Baking Intensive if that's your main focus. Delicious baked goods are for everyone!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Will I get a certificate after completing a course? Does it help with jobs?</span>
+                        <i class="fas fa-plus"></i></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Yes! Every student who completes a course receives a <strong>SweetCraft Certificate of Completion</strong> signed by your instructor. Our Professional Pastry Diploma program awards a more comprehensive industry-recognized certification that includes skills benchmarks verified by chef assessors. We also have an active job placement network — many bakeries, hotels, and restaurants specifically reach out to SweetCraft when hiring because they trust our training quality. Our diploma graduates boast a 92% job placement rate within 3 months of graduating.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="cta-section">
+                <span class="section-tag">🎁 Limited Time Enrollment Bonus</span>
+                <h2 class="section-title">Enroll Today & Get 30% Off + Free Baking Kit</h2>
+                <p class="section-subtitle" style="margin-bottom: 2.5rem; color: white;">Join any course this month and we'll throw in a professional-grade pastry kit (worth ₹150) plus a complimentary spot in our popular Macaron Masterclass mini-course!</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="pricing.html" class="btn btn-primary">
+                        <i class="fas fa-gift"></i>
+                        Claim Offer Now
+                    </a>
+                    <a href="schedule.html" class="btn btn-outline">
+                        <i class="fas fa-calendar-alt"></i>
+                        View Class Schedule
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon">🥐</span>
+                        SweetCraft
+                    </a>
+                    <p>Where passion meets pastry. Join thousands of students who have transformed their baking skills with our expert-led courses.</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com" target="_blank" rel="noreferrer" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/15551234567" target="_blank" rel="noreferrer" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://youtube.com" target="_blank" rel="noreferrer" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <!-- <a href="https://x.com" target="_blank" rel="noreferrer" title="X"><i class="fab fa-x-twitter"></i></a> -->
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Courses</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Discover</h4>
+                    <ul class="footer-links">
+                        <li><a href="gallery.html">Creations Gallery</a></li>
+                        <li><a href="vouchers.html">Gift Vouchers</a></li>
+                        <li><a href="pricing.html">Pricing Plans</a></li>
+                        <li><a href="coming-soon.html">Events</a></li>
+                        <li><a href="404.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Contact Info</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 0.5rem; color: var(--primary);"></i> 123 Baker Street, Culinary District, NY 10001</li>
+                        <li><i class="fas fa-phone" style="margin-right: 0.5rem; color: var(--primary);"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope" style="margin-right: 0.5rem; color: var(--primary);"></i> hello@sweetcraft.com</li>
+                        <li><i class="fas fa-clock" style="margin-right: 0.5rem; color: var(--primary);"></i> Mon-Sat: 8AM - 8PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SweetCraft Studio. All rights reserved. Made with ❤️ and flour.</p>
+                <div>
+                    <a href="#" style="color: inherit; text-decoration: none; margin-left: 1.5rem;">Privacy Policy</a>
+                    <a href="#" style="color: inherit; text-decoration: none; margin-left: 1.5rem;">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SweetCraft Pricing Plans</title>
+    <meta name="description" content="Explore SweetCraft pricing plans for beginner, intermediate, and professional baking courses and memberships.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🥐</span>
+                SweetCraft
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index-2.html">Studio</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Courses</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+                <button class="rtl-toggle" title="Toggle RTL"><i class="fas fa-align-right"></i></button>
+                <a href="login.html" class="btn btn-primary" style="padding: 0.625rem 1.5rem; font-size: 0.875rem;">Login</a>
+                <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu">
+        <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
+        <ul class="mobile-menu-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index-2.html">Baking Studio</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Courses</a></li>
+            <li><a href="schedule.html">Class Schedule</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="vouchers.html">Gift Vouchers</a></li>
+            <li><a href="pricing.html" class="active">Pricing</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login / Register</a></li>
+        </ul>
+    </div>
+    <div class="overlay"></div>
+
+    <section class="page-header">
+        <div class="container">
+            <span class="section-tag">💸 Flexible Pricing</span>
+            <h1>Choose the Perfect Baking Plan</h1>
+            <p>From first steps to professional pastry mastery, we have pricing options built around your goals and schedule.</p>
+            <div class="breadcrumb">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <span><i class="fas fa-chevron-right"></i></span>
+                <span>Pricing</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="pricing-grid">
+                <div class="card pricing-card">
+                    <div class="pricing-name">Starter</div>
+                    <div class="pricing-desc">Ideal for curious beginners</div>
+                    <div class="pricing-price">
+                        <span class="pricing-amount">₹49</span>
+                        <span class="pricing-period">/ month</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Access to 2 beginner classes</li>
+                        <li><i class="fas fa-check"></i> Recipe library access</li>
+                        <li><i class="fas fa-check"></i> Monthly live baking Q&A</li>
+                        <li class="unavailable"><i class="fas fa-times"></i> Premium workshops</li>
+                        <li class="unavailable"><i class="fas fa-times"></i> Private coaching</li>
+                    </ul>
+                    <button class="btn btn-outline" onclick="selectPlan('Starter')">Select Plan</button>
+                </div>
+
+                <div class="card pricing-card featured">
+                    <div class="pricing-name">Pro Pastry</div>
+                    <div class="pricing-desc">Best for committed learners</div>
+                    <div class="pricing-price">
+                        <span class="pricing-amount">₹129</span>
+                        <span class="pricing-period">/ month</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Unlimited class access</li>
+                        <li><i class="fas fa-check"></i> All recipe and tutorial vaults</li>
+                        <li><i class="fas fa-check"></i> Priority booking for workshops</li>
+                        <li><i class="fas fa-check"></i> 1 live mentor session / month</li>
+                        <li class="unavailable"><i class="fas fa-times"></i> VIP pastry events</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="selectPlan('Pro Pastry')">Select Plan</button>
+                </div>
+
+                <div class="card pricing-card">
+                    <div class="pricing-name">Master Studio</div>
+                    <div class="pricing-desc">For advanced bakers and professionals</div>
+                    <div class="pricing-price">
+                        <span class="pricing-amount">₹249</span>
+                        <span class="pricing-period">/ month</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Everything in Pro Pastry</li>
+                        <li><i class="fas fa-check"></i> Private mentorship sessions</li>
+                        <li><i class="fas fa-check"></i> Priority access to premium intensives</li>
+                        <li><i class="fas fa-check"></i> Certification prep support</li>
+                        <li><i class="fas fa-check"></i> Exclusive event invitations</li>
+                    </ul>
+                    <button class="btn btn-outline" onclick="selectPlan('Master Studio')">Select Plan</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: linear-gradient(180deg, rgba(210,105,30,0.03), transparent);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">✅ What’s Included</span>
+                <h2 class="section-title">Every Plan Includes</h2>
+                <p class="section-subtitle">No hidden costs — every membership gives you access to a complete learning ecosystem.</p>
+            </div>
+            <div class="features-grid">
+                <div class="card feature-card">
+                    <div class="feature-icon"><i class="fas fa-book-open"></i></div>
+                    <h3>Recipe Vault</h3>
+                    <p>Access to curated pastry recipes, class notes, and progress tracking tools.</p>
+                </div>
+                <div class="card feature-card">
+                    <div class="feature-icon"><i class="fas fa-video"></i></div>
+                    <h3>Video Lessons</h3>
+                    <p>Watch step-by-step tutorials from our expert chefs whenever you need inspiration.</p>
+                </div>
+                <div class="card feature-card">
+                    <div class="feature-icon"><i class="fas fa-user-friends"></i></div>
+                    <h3>Community Access</h3>
+                    <p>Share projects, ask questions, and celebrate milestones with fellow bakers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon">🥐</span>
+                        SweetCraft
+                    </a>
+                    <p>We blend industry expertise, creativity, and hands-on support to help students flourish.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <!-- <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a> -->
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Courses</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Explore</h4>
+                    <ul class="footer-links">
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="vouchers.html">Vouchers</a></li>
+                        <li><a href="coming-soon.html">Events</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Contact</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 0.5rem; color: var(--primary);"></i> 123 Baker Street, NY</li>
+                        <li><i class="fas fa-phone" style="margin-right: 0.5rem; color: var(--primary);"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope" style="margin-right: 0.5rem; color: var(--primary);"></i> hello@sweetcraft.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SweetCraft Studio. All rights reserved.</p>
+                <div>
+                    <a href="#" style="color: inherit; text-decoration: none; margin-left: 1.5rem;">Privacy</a>
+                    <a href="#" style="color: inherit; text-decoration: none; margin-left: 1.5rem;">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

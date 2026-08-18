@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SweetCraft Gallery - Past Creations</title>
+    <meta name="description" content="Explore SweetCraft gallery of baked goods, pastries, cakes, and student creations.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><span class="logo-icon">🥐</span>SweetCraft</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index-2.html">Studio</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Courses</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle"><i class="fas fa-moon"></i></button>
+                <button class="rtl-toggle"><i class="fas fa-align-right"></i></button>
+                <a href="login.html" class="btn btn-primary" style="padding: 0.625rem 1.5rem; font-size: 0.875rem;">Login</a>
+                <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu">
+        <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
+        <ul class="mobile-menu-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index-2.html">Studio</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Courses</a></li>
+            <li><a href="schedule.html">Class Schedule</a></li>
+            <li><a href="gallery.html" class="active">Gallery</a></li>
+            <li><a href="vouchers.html">Gift Vouchers</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login / Register</a></li>
+        </ul>
+    </div>
+    <div class="overlay"></div>
+
+    <section class="page-header">
+        <div class="container">
+            <span class="section-tag">📸 Studio Gallery</span>
+            <h1>See the SweetCraft Signature</h1>
+            <p>Explore student creations, refined pastries, and stunning cakes from our studio kitchen.</p>
+            <div class="breadcrumb">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <span><i class="fas fa-chevron-right"></i></span>
+                <span>Gallery</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="showcase-grid">
+                <div class="showcase-item card" onclick="viewGallery('Artisan Breads')">
+                    <img class="showcase-image" src="images/red_velvet_.jpg" alt="Artisan breads and pastry creations">
+                    <div class="showcase-badge">Bread</div>
+                    <div class="showcase-info">
+                        <h4>Artisan Breads</h4>
+                        <p>Stone-milled loaves, sourdough, and brioche crafted with classic technique.</p>
+                    </div>
+                </div>
+                <div class="showcase-item card" onclick="viewGallery('French Macarons')">
+                    <img class="showcase-image" src="images/blueberry_cheesecake.jpg" alt="French macarons and pastries">
+                    <div class="showcase-badge">Pastry</div>
+                    <div class="showcase-info">
+                        <h4>French Macarons</h4>
+                        <p>Delicate shells paired with buttery ganache and seasonal fillings.</p>
+                    </div>
+                </div>
+                <div class="showcase-item card" onclick="viewGallery('Wedding Cakes')">
+                    <img class="showcase-image" src="images/tiered_wedding_cake.jpg" alt="Elegant wedding cake designs">
+                    <div class="showcase-badge">Celebration</div>
+                    <div class="showcase-info">
+                        <h4>Wedding Cakes</h4>
+                        <p>Elegant multi-tier designs created for memorable weekend celebrations.</p>
+                    </div>
+                </div>
+                <div class="showcase-item card" onclick="viewGallery('Chocolate Confections')">
+                    <img class="showcase-image" src="images/chocolate.jpg" alt="Luxury chocolate confections">
+                    <div class="showcase-badge">Chocolates</div>
+                    <div class="showcase-info">
+                        <h4>Chocolate Confections</h4>
+                        <p>Tempered bonbons, truffles, and handmade pralines with glossy finish.</p>
+                    </div>
+                </div>
+                <div class="showcase-item card" onclick="viewGallery('Fruit Tarts')">
+                    <img class="showcase-image" src="images/cakes.avif" alt="Fresh fruit tart collection">
+                    <div class="showcase-badge">Fresh</div>
+                    <div class="showcase-info">
+                        <h4>Fruit Tarts</h4>
+                        <p>Seasonal fruit art and handcrafted pastry crusts designed to impress.</p>
+                    </div>
+                </div>
+                <div class="showcase-item card" onclick="viewGallery('Signature Desserts')">
+                    <img class="showcase-image" src="images/homepage.png" alt="Signature dessert showcase">
+                    <div class="showcase-badge">Featured</div>
+                    <div class="showcase-info">
+                        <h4>Signature Desserts</h4>
+                        <p>Modern plated desserts and elevated classics from our head chefs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo"><span class="logo-icon">🥐</span>SweetCraft</a>
+                    <p>Creative baking, expert coaching, and beautifully finished pastries for every moment.</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com" target="_blank" rel="noreferrer" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/15551234567" target="_blank" rel="noreferrer" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://youtube.com" target="_blank" rel="noreferrer" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <!-- <a href="https://x.com" target="_blank" rel="noreferrer" title="X"><i class="fab fa-x-twitter"></i></a> -->
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Courses</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">More</h4>
+                    <ul class="footer-links">
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="vouchers.html">Gift Vouchers</a></li>
+                        <li><a href="coming-soon.html">Events</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Contact</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 0.5rem; color: var(--primary);"></i> 123 Baker Street, NY</li>
+                        <li><i class="fas fa-phone" style="margin-right: 0.5rem; color: var(--primary);"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope" style="margin-right: 0.5rem; color: var(--primary);"></i> hello@sweetcraft.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SweetCraft Studio. All rights reserved.</p>
+                <div>
+                    <a href="#" style="color: inherit; text-decoration: none; margin-left: 1.5rem;">Privacy</a>
+                    <a href="#" style="color: inherit; text-decoration: none; margin-left: 1.5rem;">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

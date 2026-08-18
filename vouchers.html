@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SweetCraft Gift Vouchers</title>
+    <meta name="description" content="Gift our baking classes and pastry workshop vouchers to friends, families, and celebration lovers.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><span class="logo-icon">🥐</span>SweetCraft</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index-2.html">Studio</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Courses</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle"><i class="fas fa-moon"></i></button>
+                <button class="rtl-toggle"><i class="fas fa-align-right"></i></button>
+                <a href="login.html" class="btn btn-primary" style="padding: 0.625rem 1.5rem; font-size: 0.875rem;">Login</a>
+                <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu">
+        <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
+        <ul class="mobile-menu-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index-2.html">Studio</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Courses</a></li>
+            <li><a href="schedule.html">Class Schedule</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="vouchers.html" class="active">Gift Vouchers</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login / Register</a></li>
+        </ul>
+    </div>
+    <div class="overlay"></div>
+
+    <section class="page-header">
+        <div class="container">
+            <span class="section-tag">🎁 SweetCraft Gift Cards</span>
+            <h1>Give the Gift of Great Baking</h1>
+            <p>Perfect for birthdays, anniversaries, weddings, or a creative weekend surprise.</p>
+            <div class="breadcrumb">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <span><i class="fas fa-chevron-right"></i></span>
+                <span>Gift Vouchers</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="courses-grid">
+                <div class="card voucher-card">
+                    <div class="voucher-value">₹25</div>
+                    <h3 class="voucher-title">Starter Voucher</h3>
+                    <ul class="voucher-features">
+                        <li><i class="fas fa-check"></i> Great for beginner classes</li>
+                        <li><i class="fas fa-check"></i> Valid for 12 months</li>
+                        <li><i class="fas fa-check"></i> Instant digital delivery</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="buyVoucher('₹25 Voucher')">Buy Now</button>
+                </div>
+                <div class="card voucher-card" style="border-color: var(--primary);">
+                    <div class="voucher-value">₹75</div>
+                    <h3 class="voucher-title">Signature Voucher</h3>
+                    <ul class="voucher-features">
+                        <li><i class="fas fa-check"></i> Good for any course</li>
+                        <li><i class="fas fa-check"></i> Includes welcome kit</li>
+                        <li><i class="fas fa-check"></i> Perfect for celebrations</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="buyVoucher('₹75 Voucher')">Buy Now</button>
+                </div>
+                <div class="card voucher-card">
+                    <div class="voucher-value">₹150</div>
+                    <h3 class="voucher-title">Luxury Voucher</h3>
+                    <ul class="voucher-features">
+                        <li><i class="fas fa-check"></i> Premium classes and workshops</li>
+                        <li><i class="fas fa-check"></i> Priority booking</li>
+                        <li><i class="fas fa-check"></i> Giftable digital postcard</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="buyVoucher('₹150 Voucher')">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo"><span class="logo-icon">🥐</span>SweetCraft</a>
+                    <p>Perfect for birthdays, weddings, and thoughtful culinary surprises.</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com" target="_blank" rel="noreferrer" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/15551234567" target="_blank" rel="noreferrer" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://youtube.com" target="_blank" rel="noreferrer" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <!-- <a href="https://x.com" target="_blank" rel="noreferrer" title="X"><i class="fab fa-x-twitter"></i></a> -->
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Courses</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Explore</h4>
+                    <ul class="footer-links">
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="coming-soon.html">Events</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Contact</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 0.5rem; color: var(--primary);"></i> 123 Baker Street, NY</li>
+                        <li><i class="fas fa-phone" style="margin-right: 0.5rem; color: var(--primary);"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope" style="margin-right: 0.5rem; color: var(--primary);"></i> hello@sweetcraft.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SweetCraft Studio. All rights reserved.</p>
+                <div>
+                    <a href="#" style="color: inherit; text-decoration: none; margin-left: 1.5rem;">Privacy</a>
+                    <a href="#" style="color: inherit; text-decoration: none; margin-left: 1.5rem;">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

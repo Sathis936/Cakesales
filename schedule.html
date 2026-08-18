@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Schedule - Upcoming Batches | SweetCraft</title>
+    <meta name="description" content="View our complete class schedule with upcoming batch dates, times, and available seats. Find the perfect baking class that fits your schedule.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🥐</span>
+                SweetCraft
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index-2.html">Studio</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Courses</a></li>
+                <li><a href="schedule.html" class="active">Schedule</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+                <button class="rtl-toggle" title="Toggle RTL"><i class="fas fa-align-right"></i></button>
+                <a href="login.html" class="btn btn-primary" style="padding: 0.625rem 1.5rem; font-size: 0.875rem;">Login</a>
+                <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu">
+        <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
+        <ul class="mobile-menu-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index-2.html">Baking Studio</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Courses</a></li>
+            <li><a href="schedule.html" class="active">Class Schedule</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="vouchers.html">Gift Vouchers</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login / Register</a></li>
+        </ul>
+    </div>
+    <div class="overlay"></div>
+
+    <section class="page-header">
+        <div class="container">
+            <span class="section-tag">📅 Class Schedule</span>
+            <h1>Upcoming Batches &amp; Classes</h1>
+            <p>Find the perfect batch that fits your schedule. All classes are hands-on with small groups and expert instructors.</p>
+            <div class="breadcrumb">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <span>/</span>
+                <span>Class Schedule</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="filters">
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-level="all"><i class="fas fa-layer-group"></i> All Levels</button>
+                    <button class="filter-tab" data-level="beginner"><i class="fas fa-seedling"></i> Beginner</button>
+                    <button class="filter-tab" data-level="intermediate"><i class="fas fa-fire"></i> Intermediate</button>
+                    <button class="filter-tab" data-level="advanced"><i class="fas fa-crown"></i> Advanced</button>
+                </div>
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search classes, courses, chefs...">
+                </div>
+            </div>
+
+            <div class="card" style="padding: 1.5rem 2rem; margin-bottom: 2.5rem;">
+                <h4 style="font-size: 1rem; margin-bottom: 1rem; opacity: 0.8;"><i class="fas fa-palette" style="color: var(--primary); margin-right: 0.5rem;"></i> Legend — Course Levels</h4>
+                <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                    <div class="legend-item" style="display: flex; align-items: center; gap: 0.75rem;">
+                        <span style="width: 20px; height: 20px; border-radius: 6px; background: linear-gradient(135deg, #10B981, #34D399); display: inline-block;"></span>
+                        <div>
+                            <strong style="font-size: 0.95rem;">Beginner</strong>
+                            <span style="opacity: 0.6; font-size: 0.85rem; margin-left: 0.5rem;">No experience required</span>
+                        </div>
+                    </div>
+                    <div class="legend-item" style="display: flex; align-items: center; gap: 0.75rem;">
+                        <span style="width: 20px; height: 20px; border-radius: 6px; background: linear-gradient(135deg, #F59E0B, #FBBF24); display: inline-block;"></span>
+                        <div>
+                            <strong style="font-size: 0.95rem;">Intermediate</strong>
+                            <span style="opacity: 0.6; font-size: 0.85rem; margin-left: 0.5rem;">Basic skills recommended</span>
+                        </div>
+                    </div>
+                    <div class="legend-item" style="display: flex; align-items: center; gap: 0.75rem;">
+                        <span style="width: 20px; height: 20px; border-radius: 6px; background: linear-gradient(135deg, #EF4444, #F87171); display: inline-block;"></span>
+                        <div>
+                            <strong style="font-size: 0.95rem;">Advanced</strong>
+                            <span style="opacity: 0.6; font-size: 0.85rem; margin-left: 0.5rem;">Professional or grad-level</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="schedule-container">
+                <h4 style="font-size: 1rem; margin-bottom: 1.5rem; opacity: 0.7;"><i class="fas fa-calendar-week" style="color: var(--primary); margin-right: 0.5rem;"></i>September 2026 — Upcoming Classes</h4>
+
+                <div class="schedule-tabs" style="margin-bottom: 0.5rem; border-bottom: none; padding-bottom: 0;">
+                    <button class="schedule-tab active" data-week="1">Week 1 (Sep 1-7)</button>
+                    <button class="schedule-tab" data-week="2">Week 2 (Sep 8-14)</button>
+                    <button class="schedule-tab" data-week="3">Week 3 (Sep 15-21)</button>
+                    <button class="schedule-tab" data-week="4">Week 4 (Sep 22-30)</button>
+                </div>
+
+                <div class="schedule-tabs" style="margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 2px solid rgba(0,0,0,0.08);">
+                    <button class="schedule-tab active" data-day="all"><i class="fas fa-calendar"></i> All Days</button>
+                    <button class="schedule-tab" data-day="mon">Mon</button>
+                    <button class="schedule-tab" data-day="tue">Tue</button>
+                    <button class="schedule-tab" data-day="wed">Wed</button>
+                    <button class="schedule-tab" data-day="thu">Thu</button>
+                    <button class="schedule-tab" data-day="fri">Fri</button>
+                    <button class="schedule-tab" data-day="sat">Sat</button>
+                    <button class="schedule-tab" data-day="sun">Sun</button>
+                </div>
+
+                <div class="schedule-list">
+                    <div class="schedule-item" data-level="beginner" data-day="tue" data-week="1">
+                        <div class="schedule-date">
+                            <div class="schedule-day">02</div>
+                            <div class="schedule-month">Sep</div>
+                            <div style="font-size: 0.7rem; opacity: 0.85; margin-top: 0.25rem;">Tue</div>
+                        </div>
+                        <div class="schedule-info">
+                            <span style="display: inline-block; width: 10px; height: 10px; border-radius: 3px; background: linear-gradient(135deg, #10B981, #34D399); margin-right: 0.5rem; vertical-align: middle;"></span>
+                            <span style="background: rgba(16, 185, 129, 0.15); color: #10B981; padding: 0.25rem 0.625rem; border-radius: 50px; font-size: 0.7rem; font-weight: 700; margin-right: 0.5rem;">BEGINNER</span>
+                            <h4 style="margin-top: 0.5rem;">Cookie Baking 101 — The Basics</h4>
+                            <div class="schedule-meta">
+                                <span><i class="fas fa-user-tie"></i> Chef Emma</span>
+                                <span><i class="fas fa-clock"></i> 10:00 AM - 1:00 PM</span>
+                                <span><i class="fas fa-hourglass-half"></i> 3 Hours</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Studio A</span>
+                                <span style="color: #10B981;"><i class="fas fa-chair"></i> 5 of 8 spots left</span>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                            <button class="btn btn-primary" style="padding: 0.625rem 1.25rem; font-size: 0.85rem; white-space: nowrap;" onclick="scheduleEnroll('Cookie Baking 101 — Sep 2')">
+                                <i class="fas fa-sign-in-alt"></i> Enroll
+                            </button>
+                            <div style="font-size: 0.85rem; color: var(--primary); font-weight: 700;">₹89</div>
+                        </div>
+                    </div>
+
+                    <div class="schedule-item" data-level="intermediate" data-day="wed" data-week="1">
+                        <div class="schedule-date">
+                            <div class="schedule-day">03</div>
+                            <div class="schedule-month">Sep</div>
+                            <div style="font-size: 0.7rem; opacity: 0.85; margin-top: 0.25rem;">Wed</div>
+                        </div>
+                        <div class="schedule-info">
+                            <span style="display: inline-block; width: 10px; height: 10px; border-radius: 3px; background: linear-gradient(135deg, #F59E0B, #FBBF24); margin-right: 0.5rem; vertical-align: middle;"></span>
+                            <span style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; padding: 0.25rem 0.625rem; border-radius: 50px; font-size: 0.7rem; font-weight: 700; margin-right: 0.5rem;">INTERMEDIATE</span>
+                            <span style="background: var(--accent); color: white; padding: 0.25rem 0.625rem; border-radius: 50px; font-size: 0.7rem; font-weight: 700;">NEW BATCH</span>
+                            <h4 style="margin-top: 0.5rem;">French Pastry Essentials — Weekday Track</h4>
+                            <div class="schedule-meta">
+                                <span><i class="fas fa-user-tie"></i> Chef Antoine</span>
+                                <span><i class="fas fa-clock"></i> 9:00 AM - 2:00 PM</span>
+                                <span><i class="fas fa-hourglass-half"></i> 5 Hours / day</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Main Studio</span>
+                                <span style="color: #10B981;"><i class="fas fa-chair"></i> 2 of 6 spots left</span>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                            <button class="btn btn-primary" style="padding: 0.625rem 1.25rem; font-size: 0.85rem; white-space: nowrap;" onclick="scheduleEnroll('French Pastry Essentials — Sep 3 Batch')">
+                                <i class="fas fa-sign-in-alt"></i> Enroll
+                            </button>
+                            <div style="font-size: 0.85rem; color: var(--primary); font-weight: 700;">₹499</div>
+                        </div>
+                    </div>
+
+                    <div class="schedule-item" data-level="beginner" data-day="sat" data-week="1">
+                        <div class="schedule-date">
+                            <div class="schedule-day">06</div>
+                            <div class="schedule-month">Sep</div>
+                            <div style="font-size: 0.7rem; opacity: 0.85; margin-top: 0.25rem;">Sat</div>
+                        </div>
+                        <div class="schedule-info">
+                            <span style="display: inline-block; width: 10px; height: 10px; border-radius: 3px; background: linear-gradient(135deg, #10B981, #34D399); margin-right: 0.5rem; vertical-align: middle;"></span>
+                            <span style="background: rgba(16, 185, 129, 0.15); color: #10B981; padding: 0.25rem 0.625rem; border-radius: 50px; font-size: 0.7rem; font-weight: 700; margin-right: 0.5rem;">BEGINNER</span>
+                            <h4 style="margin-top: 0.5rem;">Artisan Bread Making — Weekend Bootcamp</h4>
+                            <div class="schedule-meta">
+                                <span><i class="fas fa-user-tie"></i> Chef Marco</span>
+                                <span><i class="fas fa-clock"></i> 9:00 AM - 5:00 PM</span>
+                                <span><i class="fas fa-hourglass-half"></i> 8 Hours</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Bread Lab</span>
+                                <span style="color: #10B981;"><i class="fas fa-chair"></i> 4 of 8 spots left</span>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                            <button class="btn btn-primary" style="padding: 0.625rem 1.25rem; font-size: 0.85rem; white-space: nowrap;" onclick="scheduleEnroll('Artisan Bread — Sep 6 Bootcamp')">
+                                <i class="fas fa-sign-in-alt"></i> Enroll
+                            </button>
+                            <div style="font-size: 0.85rem; color: var(--primary); font-weight: 700;">₹199</div>
+                        </div>
+                    </div>
+
+                    <div class="schedule-item" data-level="advanced" data-day="sun" data-week="1">
+                        <div class="schedule-date">
+                            <div class="schedule-day">07</div>
+                            <div class="schedule-month">Sep</div>
+                            <div style="font-size: 0.7rem; opacity: 0.85; margin-top: 0.25rem;">Sun</div>
+                        </div>
+                        <div class="schedule-info">
+                            <span style="display: inline-block; width: 10px; height: 10px; border-radius: 3px; background: linear-gradient(135deg, #EF4444, #F87171); margin-right: 0.5rem; vertical-align: middle;"></span>
+                            <span style="background: rgba(239, 68, 68, 0.15); color: #EF4444; padding: 0.25rem 0.625rem; border-radius: 50px; font-size: 0.7rem; font-weight: 700; margin-right: 0.5rem;">ADVANCED</span>
+                            <h4 style="margin-top: 0.5rem;">Sugar Art &amp; Cake Decorating Masterclass</h4>
+                            <div class="schedule-meta">
+                                <span><i class="fas fa-user-tie"></i> Chef Isabella</span>
+                                <span><i class="fas fa-clock"></i> 11:00 AM - 4:00 PM</span>
+                                <span><i class="fas fa-hourglass-half"></i> 5 Hours</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Studio C</span>
+                                <span style="color: #F59E0B;"><i class="fas fa-chair"></i> 1 of 5 spots left</span>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                            <button class="btn btn-primary" style="padding: 0.625rem 1.25rem; font-size: 0.85rem; white-space: nowrap;" onclick="scheduleEnroll('Sugar Art — Sep 7 Masterclass')">
+                                <i class="fas fa-sign-in-alt"></i> Enroll
+                            </button>
+                            <div style="font-size: 0.85rem; color: var(--primary); font-weight: 700;">₹349</div>
+                        </div>
+                    </div>
+
+                    <div class="schedule-item" data-level="intermediate" data-day="mon" data-week="2">
+                        <div class="schedule-date">
+                            <div class="schedule-day">08</div>
+                            <div class="schedule-month">Sep</div>
+                            <div style="font-size: 0.7rem; opacity: 0.85; margin-top: 0.25rem;">Mon</div>
+                        </div>
+                        <div class="schedule-info">
+                            <span style="display: inline-block; width: 10px; height: 10px; border-radius: 3px; background: linear-gradient(135deg, #F59E0B, #FBBF24); margin-right: 0.5rem; vertical-align: middle;"></span>
+                            <span style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; padding: 0.25rem 0.625rem; border-radius: 50px; font-size: 0.7rem; font-weight: 700; margin-right: 0.5rem;">INTERMEDIATE</span>
+                            <h4 style="margin-top: 0.5rem;">Macaron Intensive — 2-Day Workshop</h4>
+                            <div class="schedule-meta">
+                                <span><i class="fas fa-user-tie"></i> Chef Antoine</span>
+                                <span><i class="fas fa-clock"></i> 10:00 AM - 3:00 PM</span>
+                                <span><i class="fas fa-hourglass-half"></i> 5 Hours / day</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Main Studio</span>
+                                <span style="color: #EF4444;"><i class="fas fa-chair"></i> 0 of 6 spots — Waitlist</span>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                            <button class="btn btn-outline" style="padding: 0.625rem 1.25rem; font-size: 0.85rem; white-space: nowrap;" onclick="scheduleEnroll('Macaron Intensive — Sep 8 Waitlist')">
+                                <i class="fas fa-plus"></i> Waitlist
+                            </button>
+                            <div style="font-size: 0.85rem; color: var(--primary); font-weight: 700;">₹279</div>
+                        </div>
+                    </div>
+
+                    <div class="schedule-item" data-level="beginner" data-day="thu" data-week="2">
+                        <div class="schedule-date">
+                            <div class="schedule-day">11</div>
+                            <div class="schedule-month">Sep</div>
+                            <div style="font-size: 0.7rem; opacity: 0.85; margin-top: 0.25rem;">Thu</div>
+                        </div>
+                        <div class="schedule-info">
+                            <span style="display: inline-block; width: 10px; height: 10px; border-radius: 3px; background: linear-gradient(135deg, #10B981, #34D399); margin-right: 0.5rem; vertical-align: middle;"></span>
+                            <span style="background: rgba(16, 185, 129, 0.15); color: #10B981; padding: 0.25rem 0.625rem; border-radius: 50px; font-size: 0.7rem; font-weight: 700; margin-right: 0.5rem;">BEGINNER</span>
+                            <span style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(236, 72, 153, 0.1)); color: #8B5CF6; padding: 0.25rem 0.625rem; border-radius: 50px; font-size: 0.7rem; font-weight: 700;">KIDS SPECIAL</span>
+                            <h4 style="margin-top: 0.5rem;">Kids Baking Camp — Cupcake Wonderland</h4>
+                            <div class="schedule-meta">
+                                <span><i class="fas fa-user-tie"></i> Chef Sophie</span>
+                                <span><i class="fas fa-clock"></i> 3:00 PM - 5:30 PM</span>
+                                <span><i class="fas fa-hourglass-half"></i> 2.5 Hours</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Junior Kitchen</span>
+                                <span style="color: #10B981;"><i class="fas fa-chair"></i> 6 of 10 spots left</span>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                            <button class="btn btn-primary" style="padding: 0.625rem 1.25rem; font-size: 0.85rem; white-space: nowrap;" onclick="scheduleEnroll('Kids Camp — Sep 11 Cupcakes')">
+                                <i class="fas fa-sign-in-alt"></i> Enroll
+                            </button>
+                            <div style="font-size: 0.85rem; color: var(--primary); font-weight: 700;">₹65</div>
+                        </div>
+                    </div>
+
+                    <div class="schedule-item" data-level="advanced" data-day="fri" data-week="2">
+                        <div class="schedule-date">
+                            <div class="schedule-day">12</div>
+                            <div class="schedule-month">Sep</div>
+                            <div style="font-size: 0.7rem; opacity: 0.85; margin-top: 0.25rem;">Fri</div>
+                        </div>
+                        <div class="schedule-info">
+                            <span style="display: inline-block; width: 10px; height: 10px; border-radius: 3px; background: linear-gradient(135deg, #EF4444, #F87171); margin-right: 0.5rem; vertical-align: middle;"></span>
+                            <span style="background: rgba(239, 68, 68, 0.15); color: #EF4444; padding: 0.25rem 0.625rem; border-radius: 50px; font-size: 0.7rem; font-weight: 700; margin-right: 0.5rem;">ADVANCED</span>
+                            <span style="background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; padding: 0.25rem 0.625rem; border-radius: 50px; font-size: 0.7rem; font-weight: 700;">MASTERCLASS</span>
+                            <h4 style="margin-top: 0.5rem;">Chocolate Bonbon &amp; Truffle Workshop</h4>
+                            <div class="schedule-meta">
+                                <span><i class="fas fa-user-tie"></i> Chef Lucas</span>
+                                <span><i class="fas fa-clock"></i> 2:00 PM - 7:00 PM</span>
+                                <span><i class="fas fa-hourglass-half"></i> 5 Hours</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Chocolate Lab</span>
+                                <span style="color: #F59E0B;"><i class="fas fa-chair"></i> 2 of 5 spots left</span>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                            <button class="btn btn-primary" style="padding: 0.625rem 1.25rem; font-size: 0.85rem; white-space: nowrap;" onclick="scheduleEnroll('Chocolate Workshop — Sep 12')">
+                                <i class="fas fa-sign-in-alt"></i> Enroll
+                            </button>
+                            <div style="font-size: 0.85rem; color: var(--primary); font-weight: 700;">₹399</div>
+                        </div>
+                    </div>
+
+                    <div class="schedule-item" data-level="beginner" data-day="sat" data-week="2">
+                        <div class="schedule-date">
+                            <div class="schedule-day">13</div>
+                            <div class="schedule-month">Sep</div>
+                            <div style="font-size: 0.7rem; opacity: 0.85; margin-top: 0.25rem;">Sat</div>
+                        </div>
+                        <div class="schedule-info">
+                            <span style="display: inline-block; width: 10px; height: 10px; border-radius: 3px; background: linear-gradient(135deg, #10B981, #34D399); margin-right: 0.5rem; vertical-align: middle;"></span>
+                            <span style="background: rgba(16, 185, 129, 0.15); color: #10B981; padding: 0.25rem 0.625rem; border-radius: 50px; font-size: 0.7rem; font-weight: 700; margin-right: 0.5rem;">BEGINNER</span>
+                            <h4 style="margin-top: 0.5rem;">Brunch Baking — Croissants &amp; Danishes</h4>
+                            <div class="schedule-meta">
+                                <span><i class="fas fa-user-tie"></i> Chef Emma</span>
+                                <span><i class="fas fa-clock"></i> 8:00 AM - 12:00 PM</span>
+                                <span><i class="fas fa-hourglass-half"></i> 4 Hours</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Studio A</span>
+                                <span style="color: #10B981;"><i class="fas fa-chair"></i> 6 of 8 spots left</span>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                            <button class="btn btn-primary" style="padding: 0.625rem 1.25rem; font-size: 0.85rem; white-space: nowrap;" onclick="scheduleEnroll('Brunch Baking — Sep 13')">
+                                <i class="fas fa-sign-in-alt"></i> Enroll
+                            </button>
+                            <div style="font-size: 0.85rem; color: var(--primary); font-weight: 700;">₹149</div>
+                        </div>
+                    </div>
+
+                    <div class="schedule-item" data-level="intermediate" data-day="mon" data-week="3">
+                        <div class="schedule-date">
+                            <div class="schedule-day">15</div>
+                            <div class="schedule-month">Sep</div>
+                            <div style="font-size: 0.7rem; opacity: 0.85; margin-top: 0.25rem;">Mon</div>
+                        </div>
+                        <div class="schedule-info">
+                            <span style="display: inline-block; width: 10px; height: 10px; border-radius: 3px; background: linear-gradient(135deg, #F59E0B, #FBBF24); margin-right: 0.5rem; vertical-align: middle;"></span>
+                            <span style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; padding: 0.25rem 0.625rem; border-radius: 50px; font-size: 0.7rem; font-weight: 700; margin-right: 0.5rem;">INTERMEDIATE</span>
+                            <h4 style="margin-top: 0.5rem;">Tart Making Mastery — Sweet &amp; Savory</h4>
+                            <div class="schedule-meta">
+                                <span><i class="fas fa-user-tie"></i> Chef Isabella</span>
+                                <span><i class="fas fa-clock"></i> 10:00 AM - 3:00 PM</span>
+                                <span><i class="fas fa-hourglass-half"></i> 5 Hours</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Studio B</span>
+                                <span style="color: #10B981;"><i class="fas fa-chair"></i> 4 of 6 spots left</span>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                            <button class="btn btn-primary" style="padding: 0.625rem 1.25rem; font-size: 0.85rem; white-space: nowrap;" onclick="scheduleEnroll('Tart Making — Sep 15')">
+                                <i class="fas fa-sign-in-alt"></i> Enroll
+                            </button>
+                            <div style="font-size: 0.85rem; color: var(--primary); font-weight: 700;">₹229</div>
+                        </div>
+                    </div>
+
+                    <div class="schedule-item" data-level="advanced" data-day="wed" data-week="3">
+                        <div class="schedule-date">
+                            <div class="schedule-day">17</div>
+                            <div class="schedule-month">Sep</div>
+                            <div style="font-size: 0.7rem; opacity: 0.85; margin-top: 0.25rem;">Wed</div>
+                        </div>
+                        <div class="schedule-info">
+                            <span style="display: inline-block; width: 10px; height: 10px; border-radius: 3px; background: linear-gradient(135deg, #EF4444, #F87171); margin-right: 0.5rem; vertical-align: middle;"></span>
+                            <span style="background: rgba(239, 68, 68, 0.15); color: #EF4444; padding: 0.25rem 0.625rem; border-radius: 50px; font-size: 0.7rem; font-weight: 700; margin-right: 0.5rem;">ADVANCED</span>
+                            <h4 style="margin-top: 0.5rem;">Wedding Cake Mastery — Full Program Start</h4>
+                            <div class="schedule-meta">
+                                <span><i class="fas fa-user-tie"></i> Chef Isabella</span>
+                                <span><i class="fas fa-clock"></i> 9:00 AM - 4:00 PM</span>
+                                <span><i class="fas fa-hourglass-half"></i> 8 Week Program</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Main Studio</span>
+                                <span style="color: #10B981;"><i class="fas fa-chair"></i> 3 of 6 spots left</span>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                            <button class="btn btn-primary" style="padding: 0.625rem 1.25rem; font-size: 0.85rem; white-space: nowrap;" onclick="scheduleEnroll('Wedding Cake — Sep 17 Program')">
+                                <i class="fas fa-sign-in-alt"></i> Enroll
+                            </button>
+                            <div style="font-size: 0.85rem; color: var(--primary); font-weight: 700;">₹799</div>
+                        </div>
+                    </div>
+
+                    <div class="schedule-item" data-level="beginner" data-day="sat" data-week="3">
+                        <div class="schedule-date">
+                            <div class="schedule-day">20</div>
+                            <div class="schedule-month">Sep</div>
+                            <div style="font-size: 0.7rem; opacity: 0.85; margin-top: 0.25rem;">Sat</div>
+                        </div>
+                        <div class="schedule-info">
+                            <span style="display: inline-block; width: 10px; height: 10px; border-radius: 3px; background: linear-gradient(135deg, #10B981, #34D399); margin-right: 0.5rem; vertical-align: middle;"></span>
+                            <span style="background: rgba(16, 185, 129, 0.15); color: #10B981; padding: 0.25rem 0.625rem; border-radius: 50px; font-size: 0.7rem; font-weight: 700; margin-right: 0.5rem;">BEGINNER</span>
+                            <span style="background: var(--secondary); color: var(--primary-dark); padding: 0.25rem 0.625rem; border-radius: 50px; font-size: 0.7rem; font-weight: 700;">WEEKEND</span>
+                            <h4 style="margin-top: 0.5rem;">Pizza &amp; Focaccia Baking Party</h4>
+                            <div class="schedule-meta">
+                                <span><i class="fas fa-user-tie"></i> Chef Marco</span>
+                                <span><i class="fas fa-clock"></i> 4:00 PM - 8:00 PM</span>
+                                <span><i class="fas fa-hourglass-half"></i> 4 Hours</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Bread Lab</span>
+                                <span style="color: #10B981;"><i class="fas fa-chair"></i> 7 of 10 spots left</span>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                            <button class="btn btn-primary" style="padding: 0.625rem 1.25rem; font-size: 0.85rem; white-space: nowrap;" onclick="scheduleEnroll('Pizza Baking — Sep 20 Party')">
+                                <i class="fas fa-sign-in-alt"></i> Enroll
+                            </button>
+                            <div style="font-size: 0.85rem; color: var(--primary); font-weight: 700;">₹119</div>
+                        </div>
+                    </div>
+
+                    <div class="schedule-item" data-level="intermediate" data-day="tue" data-week="4">
+                        <div class="schedule-date">
+                            <div class="schedule-day">23</div>
+                            <div class="schedule-month">Sep</div>
+                            <div style="font-size: 0.7rem; opacity: 0.85; margin-top: 0.25rem;">Tue</div>
+                        </div>
+                        <div class="schedule-info">
+                            <span style="display: inline-block; width: 10px; height: 10px; border-radius: 3px; background: linear-gradient(135deg, #F59E0B, #FBBF24); margin-right: 0.5rem; vertical-align: middle;"></span>
+                            <span style="background: rgba(245, 158, 11, 0.15); color: #F59E0B; padding: 0.25rem 0.625rem; border-radius: 50px; font-size: 0.7rem; font-weight: 700; margin-right: 0.5rem;">INTERMEDIATE</span>
+                            <h4 style="margin-top: 0.5rem;">French Pastry Essentials — Weekend Track</h4>
+                            <div class="schedule-meta">
+                                <span><i class="fas fa-user-tie"></i> Chef Antoine</span>
+                                <span><i class="fas fa-clock"></i> Sat/Sun 10:00 AM - 4:00 PM</span>
+                                <span><i class="fas fa-hourglass-half"></i> 6 Week Program</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Main Studio</span>
+                                <span style="color: #10B981;"><i class="fas fa-chair"></i> 4 of 6 spots left</span>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                            <button class="btn btn-primary" style="padding: 0.625rem 1.25rem; font-size: 0.85rem; white-space: nowrap;" onclick="scheduleEnroll('French Pastry Weekend — Sep 23')">
+                                <i class="fas fa-sign-in-alt"></i> Enroll
+                            </button>
+                            <div style="font-size: 0.85rem; color: var(--primary); font-weight: 700;">₹499</div>
+                        </div>
+                    </div>
+
+                    <div class="schedule-item" data-level="advanced" data-day="sat" data-week="4">
+                        <div class="schedule-date">
+                            <div class="schedule-day">27</div>
+                            <div class="schedule-month">Sep</div>
+                            <div style="font-size: 0.7rem; opacity: 0.85; margin-top: 0.25rem;">Sat</div>
+                        </div>
+                        <div class="schedule-info">
+                            <span style="display: inline-block; width: 10px; height: 10px; border-radius: 3px; background: linear-gradient(135deg, #EF4444, #F87171); margin-right: 0.5rem; vertical-align: middle;"></span>
+                            <span style="background: rgba(239, 68, 68, 0.15); color: #EF4444; padding: 0.25rem 0.625rem; border-radius: 50px; font-size: 0.7rem; font-weight: 700; margin-right: 0.5rem;">ADVANCED</span>
+                            <h4 style="margin-top: 0.5rem;">Plated Desserts — Fine Dining Techniques</h4>
+                            <div class="schedule-meta">
+                                <span><i class="fas fa-user-tie"></i> Chef Lucas</span>
+                                <span><i class="fas fa-clock"></i> 1:00 PM - 6:00 PM</span>
+                                <span><i class="fas fa-hourglass-half"></i> 5 Hours</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Studio C</span>
+                                <span style="color: #F59E0B;"><i class="fas fa-chair"></i> 2 of 5 spots left</span>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                            <button class="btn btn-primary" style="padding: 0.625rem 1.25rem; font-size: 0.85rem; white-space: nowrap;" onclick="scheduleEnroll('Plated Desserts — Sep 27')">
+                                <i class="fas fa-sign-in-alt"></i> Enroll
+                            </button>
+                            <div style="font-size: 0.85rem; color: var(--primary); font-weight: 700;">₹329</div>
+                        </div>
+                    </div>
+
+                    <div class="schedule-item" data-level="beginner" data-day="sun" data-week="4">
+                        <div class="schedule-date">
+                            <div class="schedule-day">28</div>
+                            <div class="schedule-month">Sep</div>
+                            <div style="font-size: 0.7rem; opacity: 0.85; margin-top: 0.25rem;">Sun</div>
+                        </div>
+                        <div class="schedule-info">
+                            <span style="display: inline-block; width: 10px; height: 10px; border-radius: 3px; background: linear-gradient(135deg, #10B981, #34D399); margin-right: 0.5rem; vertical-align: middle;"></span>
+                            <span style="background: rgba(16, 185, 129, 0.15); color: #10B981; padding: 0.25rem 0.625rem; border-radius: 50px; font-size: 0.7rem; font-weight: 700; margin-right: 0.5rem;">BEGINNER</span>
+                            <h4 style="margin-top: 0.5rem;">Introduction to Cake Baking &amp; Frosting</h4>
+                            <div class="schedule-meta">
+                                <span><i class="fas fa-user-tie"></i> Chef Sophie</span>
+                                <span><i class="fas fa-clock"></i> 10:00 AM - 2:00 PM</span>
+                                <span><i class="fas fa-hourglass-half"></i> 4 Hours</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Studio A</span>
+                                <span style="color: #10B981;"><i class="fas fa-chair"></i> 5 of 8 spots left</span>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                            <button class="btn btn-primary" style="padding: 0.625rem 1.25rem; font-size: 0.85rem; white-space: nowrap;" onclick="scheduleEnroll('Cake Intro — Sep 28')">
+                                <i class="fas fa-sign-in-alt"></i> Enroll
+                            </button>
+                            <div style="font-size: 0.85rem; color: var(--primary); font-weight: 700;">₹129</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="cta-section">
+                <h2 class="section-title">Request a Custom Batch or Private Class</h2>
+                <p class="section-subtitle" style="margin-bottom: 2.5rem; color: white;">Need a different date, a group booking for your team, or a one-on-one masterclass? Tell us about your ideal schedule and we'll create it just for you. Corporate team building events and birthday parties also available!</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="contact.html" class="btn btn-primary">
+                        <i class="fas fa-calendar-plus"></i>
+                        Request Custom Batch
+                    </a>
+                    <a href="services.html" class="btn btn-outline">
+                        <i class="fas fa-book-open"></i>
+                        Browse All Courses
+                    </a>
+                </div>
+                 
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon">🥐</span>
+                        SweetCraft
+                    </a>
+                    <p>Where passion meets pastry. Join thousands of students who have transformed their baking skills with our expert-led courses.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <!-- <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a> -->
+                        <!-- <a href="#" title="Pinterest"><i class="fab fa-pinterest"></i></a> -->
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Courses</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Discover</h4>
+                    <ul class="footer-links">
+                        <li><a href="gallery.html">Creations Gallery</a></li>
+                        <li><a href="vouchers.html">Gift Vouchers</a></li>
+                        <li><a href="pricing.html">Pricing Plans</a></li>
+                        <li><a href="coming-soon.html">Events</a></li>
+                        <li><a href="404.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Contact Info</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 0.5rem; color: var(--primary);"></i> 123 Baker Street, Culinary District, NY 10001</li>
+                        <li><i class="fas fa-phone" style="margin-right: 0.5rem; color: var(--primary);"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope" style="margin-right: 0.5rem; color: var(--primary);"></i> hello@sweetcraft.com</li>
+                        <li><i class="fas fa-clock" style="margin-right: 0.5rem; color: var(--primary);"></i> Mon-Sat: 8AM - 8PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SweetCraft Studio. All rights reserved. Made with ❤️ and flour.</p>
+                <div>
+                    <a href="#" style="color: inherit; text-decoration: none; margin-left: 1.5rem;">Privacy Policy</a>
+                    <a href="#" style="color: inherit; text-decoration: none; margin-left: 1.5rem;">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

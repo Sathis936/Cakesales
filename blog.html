@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SweetCraft Blog - Baking Tips & Inspiration</title>
+    <meta name="description" content="Read the SweetCraft blog for baking ideas, pastry tips, recipes, and studio updates from our expert chefs.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🥐</span>
+                SweetCraft
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home 1</a></li>
+                <li><a href="index-2.html">Home 2</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Courses</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+                <button class="rtl-toggle" title="Toggle RTL"><i class="fas fa-align-right"></i></button>
+                <a href="login.html" class="btn btn-primary" style="padding: 0.625rem 1.5rem; font-size: 0.875rem;">Login</a>
+                <button class="mobile-toggle"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu">
+        <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
+        <ul class="mobile-menu-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index-2.html">Baking Studio</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Courses</a></li>
+            <li><a href="schedule.html">Class Schedule</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="vouchers.html">Gift Vouchers</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="blog.html" class="active">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login / Register</a></li>
+        </ul>
+    </div>
+    <div class="overlay"></div>
+
+    <section class="page-header">
+        <div class="container">
+            <span class="section-tag">📝 SweetCraft Journal</span>
+            <h1>Fresh Ideas, Tasty Tips & Baking Inspiration</h1>
+            <p>Explore our latest articles, expert recipes, pastry insights, and stories from the studio kitchen.</p>
+            <div class="breadcrumb">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <span><i class="fas fa-chevron-right"></i></span>
+                <span>Blog</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="filters" style="margin-bottom: 2.5rem;">
+                <div class="filter-tabs">
+                    <button class="blog-filter-tab active" data-category="all">All</button>
+                    <button class="blog-filter-tab" data-category="recipes">Recipes</button>
+                    <button class="blog-filter-tab" data-category="tips">Baking Tips</button>
+                    <button class="blog-filter-tab" data-category="studio">Studio Life</button>
+                    <button class="blog-filter-tab" data-category="business">Business</button>
+                </div>
+                <div class="search-box blog-search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" class="blog-search-input" placeholder="Search blog posts, topics, recipes...">
+                    <button type="button" class="blog-search-btn">Search</button>
+                </div>
+            </div>
+
+            <div class="blog-grid">
+                <article class="card blog-card" data-category="recipes" onclick="viewBlog('perfect-sourdough-starter')">
+                    <div class="blog-image"><img src="images/homepage.png" alt="Sourdough bread" /></div>
+                    <div class="blog-content">
+                        <div class="blog-tags">
+                            <span class="blog-tag">Recipes</span>
+                            <span class="blog-tag">Bread</span>
+                        </div>
+                        <h3 class="blog-title">Perfect Sourdough Starter at Home</h3>
+                        <p class="blog-excerpt">Learn how to feed, cultivate, and maintain a healthy sourdough starter for airy loaves and golden crusts.</p>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar-alt"></i> Apr 13, 2026</span>
+                            <span><i class="far fa-comments"></i> 42 comments</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card blog-card" data-category="tips" onclick="viewBlog('5-secrets-to-flaky-croissants')">
+                    <div class="blog-image" style="background: linear-gradient(135deg, #FFDAB9, #FFEFD5);"><img src="images/chocolate.jpg" alt="Croissant pastry" /></div>
+                    <div class="blog-content">
+                        <div class="blog-tags">
+                            <span class="blog-tag">Tips</span>
+                            <span class="blog-tag">Pastry</span>
+                        </div>
+                        <h3 class="blog-title">5 Secrets to Flaky, Golden Croissants</h3>
+                        <p class="blog-excerpt">Discover the small details that make the difference between a good croissant and a bakery-worthy one.</p>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar-alt"></i> Apr 5, 2026</span>
+                            <span><i class="far fa-comments"></i> 18 comments</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card blog-card" data-category="studio" onclick="viewBlog('behind-the-scenes-at-sweetcraft')">
+                    <div class="blog-image" style="background: linear-gradient(135deg, #F5DEB3, #DEB887);"><img src="images/expert_instructors.jpg" alt="Chef at studio" /></div>
+                    <div class="blog-content">
+                        <div class="blog-tags">
+                            <span class="blog-tag">Studio</span>
+                            <span class="blog-tag">Lifestyle</span>
+                        </div>
+                        <h3 class="blog-title">Behind the Scenes at SweetCraft Studio</h3>
+                        <p class="blog-excerpt">Peek into our production kitchen, ingredient sourcing, and the daily routine of our pastry team.</p>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar-alt"></i> Mar 28, 2026</span>
+                            <span><i class="far fa-comments"></i> 31 comments</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card blog-card" data-category="recipes" onclick="viewBlog('mini-cakes-for-celebrations')">
+                    <div class="blog-image" style="background: linear-gradient(135deg, #FFE4E1, #FFF0F5);"><img src="images/blueberry_cheesecake.jpg" alt="Celebration cake" /></div>
+                    <div class="blog-content">
+                        <div class="blog-tags">
+                            <span class="blog-tag">Recipes</span>
+                            <span class="blog-tag">Celebration</span>
+                        </div>
+                        <h3 class="blog-title">Mini Cakes That Look Luxe and Feel Easy</h3>
+                        <p class="blog-excerpt">Simple decoration ideas and easy recipes for making tiny cakes that impress every guest at the table.</p>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar-alt"></i> Mar 19, 2026</span>
+                            <span><i class="far fa-comments"></i> 26 comments</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card blog-card" data-category="business" onclick="viewBlog('how-to-price-a-baking-course')">
+                    <div class="blog-image" style="background: linear-gradient(135deg, #D2691E, #FF6B6B);"><img src="images/cakes.avif" alt="Business bakery setup" /></div>
+                    <div class="blog-content">
+                        <div class="blog-tags">
+                            <span class="blog-tag">Business</span>
+                            <span class="blog-tag">Growth</span>
+                        </div>
+                        <h3 class="blog-title">How to Price a Baking Course for Profit</h3>
+                        <p class="blog-excerpt">A practical framework for setting your class fees, measuring demand, and building profitable programs.</p>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar-alt"></i> Mar 11, 2026</span>
+                            <span><i class="far fa-comments"></i> 15 comments</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card blog-card" data-category="tips" onclick="viewBlog('essential-pastry-tools-every-baker-needs')">
+                    <div class="blog-image" style="background: linear-gradient(135deg, #F0F9FF, #E0E7FF);"><img src="images/red_velvet_.jpg" alt="Pastry tools and dessert" /></div>
+                    <div class="blog-content">
+                        <div class="blog-tags">
+                            <span class="blog-tag">Tips</span>
+                            <span class="blog-tag">Equipment</span>
+                        </div>
+                        <h3 class="blog-title">Essential Tools for a Better Baking Setup</h3>
+                        <p class="blog-excerpt">From pipping bags to precision scales, here are the tools that save time and make recipes more consistent.</p>
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar-alt"></i> Feb 28, 2026</span>
+                            <span><i class="far fa-comments"></i> 52 comments</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon">🥐</span>
+                        SweetCraft
+                    </a>
+                    <p>Where passion meets pastry. Join aspiring bakers and professionals learning skills that last a lifetime.</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com" target="_blank" rel="noreferrer" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/15551234567" target="_blank" rel="noreferrer" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://youtube.com" target="_blank" rel="noreferrer" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <!-- <a href="https://x.com" target="_blank" rel="noreferrer" title="X"><i class="fab fa-x-twitter"></i></a> -->
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Courses</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">More</h4>
+                    <ul class="footer-links">
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="coming-soon.html">Events</a></li>
+                        <li><a href="404.html">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Contact</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 0.5rem; color: var(--primary);"></i> 123 Baker Street, NY</li>
+                        <li><i class="fas fa-phone" style="margin-right: 0.5rem; color: var(--primary);"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope" style="margin-right: 0.5rem; color: var(--primary);"></i> hello@sweetcraft.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SweetCraft Studio. All rights reserved.</p>
+                <div>
+                    <a href="#" style="color: inherit; text-decoration: none; margin-left: 1.5rem;">Privacy</a>
+                    <a href="#" style="color: inherit; text-decoration: none; margin-left: 1.5rem;">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
