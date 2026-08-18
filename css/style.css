@@ -4072,3 +4072,14 @@ body.dark .price-row.total {
     .dashboard-sidebar { width: min(280px, 86vw); }
     .toast { bottom: 1rem; right: 1rem; left: 1rem; max-width: none; }
 }
+
+/* Keep the shared navigation balanced on all desktop and tablet widths. */
+.nav-container { gap: 1.5rem; }
+.nav-menu { flex: 1; justify-content: center; gap: clamp(1rem, 1.8vw, 2.25rem); }
+.nav-actions { flex-shrink: 0; }
+.logo { flex-shrink: 0; }
+
+@media (max-width: 1100px) {
+    .nav-menu { display: none; }
+    .mobile-toggle { display: flex; }
+}

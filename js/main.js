@@ -154,15 +154,7 @@ function updateAuthNavigation() {
             loginLink.style.padding = '0.625rem 1.25rem';
             loginLink.style.fontSize = '0.875rem';
 
-            const signInLink = document.createElement('a');
-            signInLink.href = 'register.html';
-            signInLink.className = 'btn btn-outline';
-            signInLink.textContent = 'Sign In';
-            signInLink.style.padding = '0.625rem 1.25rem';
-            signInLink.style.fontSize = '0.875rem';
-
             authGroup.appendChild(loginLink);
-            authGroup.appendChild(signInLink);
         }
 
         const mobileToggle = container.querySelector('.mobile-toggle');
@@ -204,15 +196,7 @@ function updateAuthNavigation() {
             loginLink.textContent = 'Login';
             loginItem.appendChild(loginLink);
 
-            const signInItem = document.createElement('li');
-            signInItem.setAttribute('data-auth-mobile', 'true');
-            const signInLink = document.createElement('a');
-            signInLink.href = 'register.html';
-            signInLink.textContent = 'Sign In';
-            signInItem.appendChild(signInLink);
-
             mobileMenuNav.appendChild(loginItem);
-            mobileMenuNav.appendChild(signInItem);
         }
     }
 
