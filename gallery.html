@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SweetCraft Gallery - Past Creations</title>
-    <meta name="description" content="Explore SweetCraft gallery of baked goods, pastries, cakes, and student creations.">
+    <title>SweetCraft Gallery - Pastry & Cake Creations</title>
+    <meta name="description" content="Explore SweetCraft gallery of artisanal baked goods, French pastries, celebration cakes, and student masterclass creations.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -13,8 +13,8 @@
         <div class="nav-container">
             <a href="index.html" class="logo"><span class="logo-icon">🥐</span>SweetCraft</a>
             <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index-2.html">Studio</a></li>
+                <li><a href="index.html">Home 1</a></li>
+                <li><a href="index-2.html">Home 2</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Courses</a></li>
                 <li><a href="schedule.html">Schedule</a></li>
@@ -23,7 +23,7 @@
             </ul>
             <div class="nav-actions">
                 <button class="theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></button>
-                <button class="rtl-toggle" title="Toggle RTL"><i class="fas fa-align-right"></i></button>
+                <button class="rtl-toggle" title="Toggle RTL">RTL</button>
                 <div class="auth-nav-actions" data-auth-container>
                     <a href="login.html" class="btn btn-primary" style="padding: 0.625rem 1.5rem; font-size: 0.875rem;">Login</a>
                 </div>
@@ -35,8 +35,8 @@
     <div class="mobile-menu">
         <button class="mobile-menu-close"><i class="fas fa-times"></i></button>
         <ul class="mobile-menu-nav">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="index-2.html">Studio</a></li>
+            <li><a href="index.html">Home 1</a></li>
+            <li><a href="index-2.html">Home 2</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="services.html">Courses</a></li>
             <li><a href="schedule.html">Class Schedule</a></li>
@@ -45,7 +45,7 @@
             <li><a href="pricing.html">Pricing</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li class="mobile-auth-item" data-auth-mobile="true"><a href="login.html">Login / Register</a></li>
+            <li class="mobile-auth-item" data-auth-mobile="true"><a href="login.html">Login</a></li>
         </ul>
     </div>
     <div class="overlay"></div>
@@ -53,8 +53,8 @@
     <section class="page-header">
         <div class="container">
             <span class="section-tag">📸 Studio Gallery</span>
-            <h1>See the SweetCraft Signature</h1>
-            <p>Explore student creations, refined pastries, and stunning cakes from our studio kitchen.</p>
+            <h1>Signature Creations & Student Works</h1>
+            <p>Discover student masterclass creations, refined French pastries, and handcrafted cakes from our studio kitchen.</p>
             <div class="breadcrumb">
                 <a href="index.html"><i class="fas fa-home"></i> Home</a>
                 <span><i class="fas fa-chevron-right"></i></span>
@@ -65,55 +65,166 @@
 
     <section class="section">
         <div class="container">
-            <div class="showcase-grid">
-                <div class="showcase-item card" onclick="viewGallery('Artisan Breads')">
-                    <img class="showcase-image" src="images/red_velvet_.jpg" alt="Artisan breads and pastry creations">
-                    <div class="showcase-badge">Bread</div>
+            <div class="filters" style="justify-content: center; margin-bottom: 3rem;">
+                <div class="filter-tabs">
+                    <button class="filter-tab active" onclick="filterGallery('all', this)">All Creations</button>
+                    <button class="filter-tab" onclick="filterGallery('breads', this)">Artisan Breads</button>
+                    <button class="filter-tab" onclick="filterGallery('pastry', this)">Pastries & Macarons</button>
+                    <button class="filter-tab" onclick="filterGallery('cakes', this)">Celebration Cakes</button>
+                    <button class="filter-tab" onclick="filterGallery('chocolates', this)">Chocolates</button>
+                    <button class="filter-tab" onclick="filterGallery('tarts', this)">Fruit Tarts</button>
+                </div>
+            </div>
+
+            <div class="showcase-grid" id="galleryGrid">
+                <!-- Card 1 -->
+                <div class="showcase-item" data-category="breads" onclick="viewGallery('Artisan Sourdough Loaf')">
+                    <div class="showcase-image-wrapper">
+                        <img class="showcase-image" src="images/red_velvet_.jpg" alt="Artisan sourdough loaf">
+                    </div>
+                    <div class="showcase-badge">Breads</div>
                     <div class="showcase-info">
-                        <h4>Artisan Breads</h4>
-                        <p>Stone-milled loaves, sourdough, and brioche crafted with classic technique.</p>
+                        <h4>Artisan Sourdough & Country Loaves</h4>
+                        <p>Stone-milled organic flour, naturally fermented sourdough starter, and crisp blisters.</p>
+                        <div class="showcase-meta">
+                            <span><i class="fas fa-user-tie"></i> Chef Marco</span>
+                            <span><i class="fas fa-clock"></i> 36h Fermentation</span>
+                        </div>
                     </div>
                 </div>
-                <div class="showcase-item card" onclick="viewGallery('French Macarons')">
-                    <img class="showcase-image" src="images/blueberry_cheesecake.jpg" alt="French macarons and pastries">
+
+                <!-- Card 2 -->
+                <div class="showcase-item" data-category="pastry" onclick="viewGallery('French Macaron Assortment')">
+                    <div class="showcase-image-wrapper">
+                        <img class="showcase-image" src="images/blueberry_cheesecake.jpg" alt="French macaron assortment">
+                    </div>
                     <div class="showcase-badge">Pastry</div>
                     <div class="showcase-info">
-                        <h4>French Macarons</h4>
-                        <p>Delicate shells paired with buttery ganache and seasonal fillings.</p>
+                        <h4>French Macaron Assortment</h4>
+                        <p>Delicate almond shells filled with Madagascan vanilla, salted caramel, and fruit ganache.</p>
+                        <div class="showcase-meta">
+                            <span><i class="fas fa-user-tie"></i> Chef Claire</span>
+                            <span><i class="fas fa-star"></i> Intermediate</span>
+                        </div>
                     </div>
                 </div>
-                <div class="showcase-item card" onclick="viewGallery('Wedding Cakes')">
-                    <img class="showcase-image" src="images/tiered_wedding_cake.jpg" alt="Elegant wedding cake designs">
-                    <div class="showcase-badge">Celebration</div>
+
+                <!-- Card 3 -->
+                <div class="showcase-item" data-category="cakes" onclick="viewGallery('Tiered Wedding Cake Elegance')">
+                    <div class="showcase-image-wrapper">
+                        <img class="showcase-image" src="images/tiered_wedding_cake.jpg" alt="Royal tiered wedding cake">
+                    </div>
+                    <div class="showcase-badge">Cakes</div>
                     <div class="showcase-info">
-                        <h4>Wedding Cakes</h4>
-                        <p>Elegant multi-tier designs created for memorable weekend celebrations.</p>
+                        <h4>Royal Tiered Wedding Cake</h4>
+                        <p>Architectural three-tier tiered cake coated with Swiss meringue buttercream and florals.</p>
+                        <div class="showcase-meta">
+                            <span><i class="fas fa-user-tie"></i> Chef Isabella</span>
+                            <span><i class="fas fa-crown"></i> Masterclass</span>
+                        </div>
                     </div>
                 </div>
-                <div class="showcase-item card" onclick="viewGallery('Chocolate Confections')">
-                    <img class="showcase-image" src="images/chocolate.jpg" alt="Luxury chocolate confections">
+
+                <!-- Card 4 -->
+                <div class="showcase-item" data-category="chocolates" onclick="viewGallery('Belgian Chocolate Bonbons')">
+                    <div class="showcase-image-wrapper">
+                        <img class="showcase-image" src="images/chocolate.jpg" alt="Luxury tempered chocolate bonbons">
+                    </div>
                     <div class="showcase-badge">Chocolates</div>
                     <div class="showcase-info">
-                        <h4>Chocolate Confections</h4>
-                        <p>Tempered bonbons, truffles, and handmade pralines with glossy finish.</p>
+                        <h4>Belgian Chocolate Bonbons</h4>
+                        <p>Hand-tempered chocolate shells with glossy mirror finish, filled with hazelnut praline.</p>
+                        <div class="showcase-meta">
+                            <span><i class="fas fa-user-tie"></i> Chef Pierre</span>
+                            <span><i class="fas fa-gem"></i> Specialty</span>
+                        </div>
                     </div>
                 </div>
-                <div class="showcase-item card" onclick="viewGallery('Fruit Tarts')">
-                    <img class="showcase-image" src="images/cakes.avif" alt="Fresh fruit tart collection">
-                    <div class="showcase-badge">Fresh</div>
+
+                <!-- Card 5 -->
+                <div class="showcase-item" data-category="tarts" onclick="viewGallery('Seasonal Berry Tart')">
+                    <div class="showcase-image-wrapper">
+                        <img class="showcase-image" src="images/cakes.avif" alt="Fresh fruit and berry tart">
+                    </div>
+                    <div class="showcase-badge">Fruit Tarts</div>
                     <div class="showcase-info">
-                        <h4>Fruit Tarts</h4>
-                        <p>Seasonal fruit art and handcrafted pastry crusts designed to impress.</p>
+                        <h4>Seasonal Berry Tart</h4>
+                        <p>Sweet pâte sablée crust layered with vanilla diplomat cream and glazed orchard berries.</p>
+                        <div class="showcase-meta">
+                            <span><i class="fas fa-user-tie"></i> Chef Claire</span>
+                            <span><i class="fas fa-seedling"></i> Fresh Harvest</span>
+                        </div>
                     </div>
                 </div>
-                <div class="showcase-item card" onclick="viewGallery('Signature Desserts')">
-                    <img class="showcase-image" src="images/homepage.png" alt="Signature dessert showcase">
-                    <div class="showcase-badge">Featured</div>
+
+                <!-- Card 6 -->
+                <div class="showcase-item" data-category="pastry" onclick="viewGallery('Signature Plated Entremet')">
+                    <div class="showcase-image-wrapper">
+                        <img class="showcase-image" src="images/homepage.png" alt="Signature plated entremet">
+                    </div>
+                    <div class="showcase-badge">Pastry</div>
                     <div class="showcase-info">
-                        <h4>Signature Desserts</h4>
-                        <p>Modern plated desserts and elevated classics from our head chefs.</p>
+                        <h4>Signature Plated Entremet</h4>
+                        <p>Modern mirror-glazed dessert with raspberry coulis core, joconde sponge, and dark mousse.</p>
+                        <div class="showcase-meta">
+                            <span><i class="fas fa-user-tie"></i> Chef Marco</span>
+                            <span><i class="fas fa-fire"></i> Advanced</span>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Card 7 -->
+                <div class="showcase-item" data-category="pastry" onclick="viewGallery('Classic Pastry Techniques')">
+                    <div class="showcase-image-wrapper">
+                        <img class="showcase-image" src="images/patestrie tecniques.jpg" alt="Laminated dough and classic pastry">
+                    </div>
+                    <div class="showcase-badge">Pastry</div>
+                    <div class="showcase-info">
+                        <h4>Laminated Croissants & Brioche</h4>
+                        <p>Hand-laminated butter dough creating paper-thin crispy layers and honeycomb interior.</p>
+                        <div class="showcase-meta">
+                            <span><i class="fas fa-user-tie"></i> Chef Pierre</span>
+                            <span><i class="fas fa-award"></i> Diploma</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="showcase-item" data-category="cakes" onclick="viewGallery('Fondant & Sculpting Artistry')">
+                    <div class="showcase-image-wrapper">
+                        <img class="showcase-image" src="images/cake artistr design.jpg" alt="Sculpted cake design">
+                    </div>
+                    <div class="showcase-badge">Cakes</div>
+                    <div class="showcase-info">
+                        <h4>Sculpted Cake Artistry</h4>
+                        <p>Custom carved celebration cakes with edible sugar flowers and handcrafted textures.</p>
+                        <div class="showcase-meta">
+                            <span><i class="fas fa-user-tie"></i> Chef Isabella</span>
+                            <span><i class="fas fa-paint-brush"></i> Artistry</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 9 -->
+                <div class="showcase-item" data-category="breads" onclick="viewGallery('Home Baking Essentials')">
+                    <div class="showcase-image-wrapper">
+                        <img class="showcase-image" src="images/homebaking essential..jpg" alt="Home baking bread loaf">
+                    </div>
+                    <div class="showcase-badge">Breads</div>
+                    <div class="showcase-info">
+                        <h4>Golden Brioche & Focaccia</h4>
+                        <p>Rosemary sea salt focaccia and rich butter brioche baked to golden perfection.</p>
+                        <div class="showcase-meta">
+                            <span><i class="fas fa-user-tie"></i> Chef Marco</span>
+                            <span><i class="fas fa-smile"></i> Beginner Friendly</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 4rem;">
+                <p style="margin-bottom: 1.5rem; opacity: 0.8; font-size: 1.1rem;">Inspired by our students' masterpieces? Start crafting your own today.</p>
+                <a href="services.html" class="btn btn-primary"><i class="fas fa-graduation-cap"></i> Explore Baking Courses</a>
             </div>
         </div>
     </section>
@@ -128,13 +239,13 @@
                         <a href="https://instagram.com" target="_blank" rel="noreferrer" title="Instagram"><i class="fab fa-instagram"></i></a>
                         <a href="https://wa.me/15551234567" target="_blank" rel="noreferrer" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                         <a href="https://youtube.com" target="_blank" rel="noreferrer" title="YouTube"><i class="fab fa-youtube"></i></a>
-                        <!-- <a href="https://x.com" target="_blank" rel="noreferrer" title="X"><i class="fab fa-x-twitter"></i></a> -->
                     </div>
                 </div>
                 <div>
                     <h4 class="footer-heading">Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html">Home 1</a></li>
+                        <li><a href="index-2.html">Home 2</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="services.html">Courses</a></li>
                         <li><a href="contact.html">Contact</a></li>
@@ -143,6 +254,7 @@
                 <div>
                     <h4 class="footer-heading">More</h4>
                     <ul class="footer-links">
+                        <li><a href="schedule.html">Schedule</a></li>
                         <li><a href="pricing.html">Pricing</a></li>
                         <li><a href="blog.html">Blog</a></li>
                         <li><a href="vouchers.html">Gift Vouchers</a></li>
@@ -160,14 +272,33 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 SweetCraft Studio. All rights reserved.</p>
-                <div>
-                    <a href="#" style="color: inherit; text-decoration: none; margin-left: 1.5rem;">Privacy</a>
-                    <a href="#" style="color: inherit; text-decoration: none; margin-left: 1.5rem;">Terms</a>
-                </div>
             </div>
         </div>
     </footer>
 
     <script src="js/main.js?v=20260818-2"></script>
+    <script>
+        function filterGallery(category, button) {
+            document.querySelectorAll('.filter-tabs .filter-tab').forEach(btn => btn.classList.remove('active'));
+            if (button) button.classList.add('active');
+
+            const items = document.querySelectorAll('#galleryGrid .showcase-item');
+            items.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = 'flex';
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
+                    }, 50);
+                } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 200);
+                }
+            });
+        }
+    </script>
 </body>
 </html>

@@ -78,9 +78,14 @@ function toggleRTL() {
 
 function updateRTLIcon(btn) {
     const isRTL = document.body.classList.contains('rtl');
-    btn.innerHTML = isRTL
-        ? '<i class="fas fa-align-left"></i>'
-        : '<i class="fas fa-align-right"></i>';
+    btn.textContent = isRTL ? 'LTR' : 'RTL';
+    if (isRTL) {
+        btn.classList.add('active');
+        btn.setAttribute('title', 'Switch to LTR');
+    } else {
+        btn.classList.remove('active');
+        btn.setAttribute('title', 'Switch to RTL');
+    }
 }
 
 function initNavbar() {

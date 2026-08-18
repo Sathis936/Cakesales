@@ -244,7 +244,7 @@ body.dark .navbar {
     gap: 0.75rem;
 }
 
-.theme-toggle, .rtl-toggle, .mobile-toggle {
+.theme-toggle, .mobile-toggle {
     width: 42px;
     height: 42px;
     border-radius: 50%;
@@ -259,10 +259,47 @@ body.dark .navbar {
     font-size: 1.1rem;
 }
 
-.theme-toggle:hover, .rtl-toggle:hover, .mobile-toggle:hover {
+.theme-toggle:hover, .mobile-toggle:hover {
     background: var(--primary);
     color: white;
     transform: rotate(15deg);
+}
+
+.rtl-toggle {
+    height: 42px;
+    padding: 0 1.1rem;
+    border-radius: 21px;
+    border: 1.5px solid var(--primary);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(210, 105, 30, 0.1);
+    color: var(--primary);
+    transition: var(--transition);
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    font-family: inherit;
+    line-height: 1;
+}
+
+.rtl-toggle:hover,
+.rtl-toggle.active {
+    background: var(--primary);
+    color: white;
+}
+
+body.dark .rtl-toggle {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+body.dark .rtl-toggle:hover,
+body.dark .rtl-toggle.active {
+    background: var(--primary);
+    color: white;
 }
 
 .mobile-toggle {
@@ -613,8 +650,8 @@ body.rtl .feature-card {
 
 .showcase-grid {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
     width: 100%;
     align-items: stretch;
 }
@@ -627,223 +664,168 @@ body.rtl .feature-card {
     min-width: 0;
     height: 100%;
     overflow: hidden;
-    background: #ffffff;
-    border-radius: 18px;
-    border: 1px solid rgba(120, 75, 40, 0.10);
-    box-shadow: 0 8px 25px rgba(80, 45, 20, 0.08);
+    background: var(--card-light);
+    border-radius: var(--radius);
+    border: 1px solid rgba(210, 105, 30, 0.12);
+    box-shadow: var(--shadow);
     cursor: pointer;
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+    transition: var(--transition);
+}
+
+body.dark .showcase-item {
+    background: var(--card-dark);
+    border-color: rgba(255, 255, 255, 0.08);
 }
 
 .showcase-item:hover {
     transform: translateY(-6px);
-    box-shadow: 0 15px 35px rgba(80, 45, 20, 0.15);
+    box-shadow: var(--shadow-lg);
 }
 
-
-/* =========================================
-   IMAGE AREA
-   ========================================= */
-
-.showcase-emoji {
+/* Image Area */
+.showcase-emoji,
+.showcase-image-wrapper {
     position: relative;
     width: 100%;
-    height: 220px;
-
-    /* Remove old gradient/background */
-    background: #f5e4d0 !important;
-
+    height: 230px;
+    background: #f5e4d0;
     overflow: hidden;
     flex-shrink: 0;
     padding: 0;
     margin: 0;
 }
 
-.showcase-emoji img {
+.showcase-emoji img,
+.showcase-image,
+.showcase-image-wrapper img {
     width: 100%;
-    height: 100%;
-
+    height: 230px;
     display: block;
-
     object-fit: cover;
     object-position: center;
-
     margin: 0;
     padding: 0;
-
     border: 0;
-
     transition: transform 0.45s ease;
 }
 
-.showcase-item:hover .showcase-emoji img {
+.showcase-item:hover .showcase-emoji img,
+.showcase-item:hover .showcase-image,
+.showcase-item:hover .showcase-image-wrapper img {
     transform: scale(1.06);
 }
 
-
-/* =========================================
-   BADGE
-   ========================================= */
-
+/* Badge */
 .showcase-badge {
     position: absolute;
     top: 14px;
     left: 14px;
-
     z-index: 5;
-
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
-    padding: 7px 12px;
-
+    padding: 6px 14px;
     border-radius: 30px;
-
     background: rgba(255, 255, 255, 0.95);
-
-    color: #7a3f18;
-
-    font-size: 12px;
+    color: var(--primary);
+    font-size: 0.75rem;
     font-weight: 700;
-
     line-height: 1;
     white-space: nowrap;
-
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
+body.dark .showcase-badge {
+    background: rgba(26, 26, 46, 0.92);
+    color: var(--primary);
+}
 
-/* =========================================
-   CARD INFORMATION
-   ========================================= */
+body.rtl .showcase-badge {
+    left: auto;
+    right: 14px;
+}
 
+/* Card Information */
 .showcase-info {
     display: flex;
     flex-direction: column;
-
     flex: 1;
-
-    padding: 18px 18px 20px;
-
+    padding: 1.5rem;
     background: transparent;
 }
 
 .showcase-info h4 {
-    margin: 0 0 8px;
-
-    color: white;
-
-    font-size: 17px;
+    margin: 0 0 0.5rem;
+    color: var(--text-light);
+    font-size: 1.25rem;
     font-weight: 700;
-
     line-height: 1.35;
 }
 
+body.dark .showcase-info h4 {
+    color: var(--text-dark);
+}
+
 .showcase-info p {
-    margin: 0;
-
-    color: white;
-
-    font-size: 13px;
-    line-height: 1.5;
+    margin: 0 0 1rem;
+    color: var(--text-light);
+    opacity: 0.75;
+    font-size: 0.9rem;
+    line-height: 1.6;
 }
 
-
-/* =========================================
-   REMOVE ANY OLD IMAGE INSIDE INFO
-   ========================================= */
-
-.showcase-info img {
-    display: none !important;
+body.dark .showcase-info p {
+    color: var(--text-dark);
+    opacity: 0.8;
 }
 
+.showcase-meta {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
 
-/* =========================================
-   GALLERY BUTTON
-   ========================================= */
+body.dark .showcase-meta {
+    border-top-color: rgba(255, 255, 255, 0.08);
+}
 
+.showcase-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.showcase-meta span i {
+    color: var(--primary);
+}
+
+/* Gallery Button */
 .showcase-grid + div {
     margin-top: 45px !important;
 }
 
-
-/* =========================================
-   TABLET
-   ========================================= */
-
+/* Responsive */
 @media (max-width: 1100px) {
-
-    .showcase-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 20px;
-    }
-
-    .showcase-emoji {
-        height: 210px;
-    }
-}
-
-
-/* =========================================
-   SMALL TABLET
-   ========================================= */
-
-@media (max-width: 800px) {
-
     .showcase-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 18px;
-    }
-
-    .showcase-emoji {
-        height: 210px;
-    }
-
-    .showcase-info {
-        padding: 16px;
-    }
-
-    .showcase-info h4 {
-        font-size: 16px;
+        gap: 1.5rem;
     }
 }
 
-
-/* =========================================
-   MOBILE
-   ========================================= */
-
-@media (max-width: 520px) {
-
+@media (max-width: 640px) {
     .showcase-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 1.25rem;
     }
-
-    .showcase-emoji {
-        height: 240px;
-    }
-
-    .showcase-info {
-        padding: 17px;
-    }
-
-    .showcase-info h4 {
-        font-size: 17px;
-    }
-
-    .showcase-info p {
-        font-size: 13px;
-    }
-
-    .showcase-badge {
-        top: 12px;
-        left: 12px;
-        font-size: 11px;
-        padding: 7px 10px;
+    .showcase-emoji,
+    .showcase-image,
+    .showcase-image-wrapper {
+        height: 200px;
     }
 }
 
@@ -1129,7 +1111,7 @@ body.rtl .testimonial-quote {
 }
 
 .footer-brand .logo {
-    color: white;
+    color: var(--primary);
     margin-bottom: 1.5rem;
 }
 
@@ -1193,9 +1175,15 @@ body.rtl .testimonial-quote {
     border-top: 1px solid rgba(255,255,255,0.1);
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    text-align: center;
     font-size: 0.875rem;
     opacity: 0.6;
+}
+
+.footer-bottom p {
+    text-align: center;
+    margin: 0;
 }
 
 .page-header {
@@ -1594,22 +1582,7 @@ body.dark .voucher-card {
 
 .voucher-card::before,
 .voucher-card::after {
-    content: '';
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    background: var(--primary);
-    border-radius: 50%;
-}
-
-.voucher-card::before {
-    top: -25px;
-    left: 30px;
-}
-
-.voucher-card::after {
-    bottom: -25px;
-    right: 30px;
+    display: none;
 }
 
 .voucher-value {
@@ -4028,7 +4001,8 @@ body.dark .price-row.total {
     .logo-icon { font-size: 1.35rem; }
     .nav-actions { gap: 0.5rem; }
     .auth-nav-actions { display: none !important; }
-    .theme-toggle, .rtl-toggle, .mobile-toggle { width: 38px; height: 38px; }
+    .theme-toggle, .mobile-toggle { width: 38px; height: 38px; }
+    .rtl-toggle { height: 38px; padding: 0 0.75rem; font-size: 0.8rem; border-radius: 19px; }
     .hero { min-height: auto; padding: 6.5rem 0 4rem; }
     .hero-image-main { height: min(68vw, 360px); }
     .hero-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
