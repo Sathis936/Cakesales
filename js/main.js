@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initServiceTabs();
     initCountdown();
     initForms();
-    initDashboard();
 });
 
 function initTheme() {
@@ -126,7 +125,7 @@ function updateAuthNavigation() {
 
     navActionsContainers.forEach((container) => {
         // Remove any loose auth buttons/links directly under .nav-actions
-        const strayAuth = container.querySelectorAll(':scope > a[href*="login"], :scope > a[href*="register"], :scope > a[href*="dashboard"], :scope > button[data-auth-role], :scope > a[data-auth-role]');
+        const strayAuth = container.querySelectorAll(':scope > a[href*="login"], :scope > a[href*="register"], :scope > button[data-auth-role], :scope > a[data-auth-role]');
         strayAuth.forEach((item) => item.remove());
 
         // Find or consolidate .auth-nav-actions container
@@ -158,13 +157,6 @@ function updateAuthNavigation() {
         authGroup.innerHTML = '';
 
         if (loggedIn) {
-            const dashboardLink = document.createElement('a');
-            dashboardLink.href = 'admin-dashboard.html';
-            dashboardLink.className = 'btn btn-outline';
-            dashboardLink.textContent = 'Dashboard';
-            dashboardLink.style.padding = '0.625rem 1.25rem';
-            dashboardLink.style.fontSize = '0.875rem';
-
             const logoutBtn = document.createElement('button');
             logoutBtn.type = 'button';
             logoutBtn.className = 'btn btn-primary';
@@ -174,7 +166,6 @@ function updateAuthNavigation() {
             logoutBtn.setAttribute('data-auth-role', 'logout');
             logoutBtn.addEventListener('click', logoutUser);
 
-            authGroup.appendChild(dashboardLink);
             authGroup.appendChild(logoutBtn);
         } else {
             const loginLink = document.createElement('a');
@@ -198,7 +189,7 @@ function updateAuthNavigation() {
         }
 
         // Also clean up any loose un-tagged auth links
-        mobileMenuNav.querySelectorAll('a[href*="login"], a[href*="register"], a[href*="admin-dashboard"]').forEach((link) => {
+        mobileMenuNav.querySelectorAll('a[href*="login"], a[href*="register"]').forEach((link) => {
             const parentLi = link.closest('li');
             if (parentLi && parentLi.parentElement === mobileMenuNav) {
                 parentLi.remove();
@@ -208,14 +199,6 @@ function updateAuthNavigation() {
         });
 
         if (loggedIn) {
-            const dashboardItem = document.createElement('li');
-            dashboardItem.className = 'mobile-auth-item';
-            dashboardItem.setAttribute('data-auth-mobile', 'true');
-            const dashboardLink = document.createElement('a');
-            dashboardLink.href = 'admin-dashboard.html';
-            dashboardLink.textContent = 'Dashboard';
-            dashboardItem.appendChild(dashboardLink);
-
             const logoutItem = document.createElement('li');
             logoutItem.className = 'mobile-auth-item';
             logoutItem.setAttribute('data-auth-mobile', 'true');
@@ -225,7 +208,6 @@ function updateAuthNavigation() {
             logoutLink.addEventListener('click', logoutUser);
             logoutItem.appendChild(logoutLink);
 
-            mobileMenuNav.appendChild(dashboardItem);
             mobileMenuNav.appendChild(logoutItem);
         } else {
             const loginItem = document.createElement('li');
@@ -618,171 +600,6 @@ function showToast(message, type = 'info') {
     }, 3500);
 }
 
-function initDashboard() {
-    initMessageList();
-    initPagination();
-    initChartActions();
-    initSidebarToggle();
-    initDashboardMenu();
-    initDashboardActions();
-    initDashboardSearch();
-    initSettingsForm();
-}
-
-function initDashboardMenu() {
-    const sidebarLinks = document.querySelectorAll('.dashboard-menu a[data-section]');
-    const dashboardOverview = document.getElementById('dashboardOverview');
-    const sections = document.querySelectorAll('.dashboard-section');
-
-    if (!sidebarLinks.length || !sections.length) {
-        return;
-    }
-
-    const showSection = (sectionName) => {
-        sidebarLinks.forEach((link) => {
-            link.classList.toggle('active', link.dataset.section === sectionName);
-        });
-
-        if (dashboardOverview) {
-            dashboardOverview.style.display = sectionName === 'dashboard' ? '' : 'none';
-        }
-
-        sections.forEach((section) => {
-            const isVisible = section.dataset.section === sectionName;
-            section.hidden = !isVisible;
-        });
-    };
-
-    sidebarLinks.forEach((link) => {
-        link.addEventListener('click', (event) => {
-            event.preventDefault();
-            showSection(link.dataset.section);
-        });
-    });
-
-    showSection('dashboard');
-}
-
-function initMessageList() {
-    $$('.message-item').forEach(item => {
-        item.addEventListener('click', () => {
-            const layout = item.closest('.messages-layout');
-            layout.querySelectorAll('.message-item').forEach(i => i.classList.remove('active'));
-            item.classList.add('active');
-            item.classList.remove('unread');
-
-            const sender = item.querySelector('.message-sender').textContent;
-            const initials = item.querySelector('.message-avatar').textContent;
-            const preview = item.querySelector('.message-preview').textContent;
-            const chatUser = layout.querySelector('.chat-user-info h4');
-            const chatAvatar = layout.querySelector('.chat-user .message-avatar');
-            const chatMessages = layout.querySelector('.chat-messages');
-            if (chatUser) chatUser.textContent = sender;
-            if (chatAvatar) chatAvatar.textContent = initials;
-            if (chatMessages) chatMessages.innerHTML = `<div class="chat-message received"><div class="chat-bubble"><div class="chat-text">${preview}</div><div class="chat-time">Just now</div></div></div>`;
-        });
-    });
-}
-
-function initPagination() {
-    $$('.pagination button').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            if (btn.disabled) return;
-            const page = btn.textContent.trim();
-            if (page === '‹' || page === '›') return;
-            
-            $$('.pagination button').forEach(b => b.classList.remove('active'));
-            if (!isNaN(page)) {
-                btn.classList.add('active');
-                showToast(`Page ${page}`);
-            }
-        });
-    });
-}
-
-function initChartActions() {
-    $$('.chart-action-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const group = btn.closest('.chart-actions');
-            if (group) {
-                group.querySelectorAll('.chart-action-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                const values = { Week: [28, 34, 42, 56, 68, 76, 84], Month: [44, 58, 35, 66, 72, 55, 90], Year: [36, 48, 62, 54, 78, 86, 96] }[btn.textContent.trim()];
-                group.closest('.chart-card').querySelectorAll('.chart-bar').forEach((bar, index) => {
-                    bar.style.height = `${values[index]}%`;
-                    bar.dataset.value = values[index];
-                });
-            }
-        });
-    });
-}
-
-function initSidebarToggle() {
-    const sidebarToggle = $('#sidebarToggle');
-    const sidebar = $('.dashboard-sidebar');
-    if (sidebarToggle && sidebar) {
-        sidebarToggle.addEventListener('click', () => {
-            sidebar.classList.toggle('open');
-        });
-    }
-}
-
-function initDashboardActions() {
-    $$('[data-dashboard-action]').forEach(control => {
-        control.addEventListener('click', (event) => {
-            event.preventDefault();
-            const action = control.dataset.dashboardAction;
-            if (action === 'orders' || action === 'messages' || action === 'settings') {
-                const menuLink = document.querySelector(`.dashboard-menu a[data-section="${action}"]`);
-                if (menuLink) menuLink.click();
-            } else if (action === 'notifications') {
-                showToast('You are all caught up — no new notifications.', 'info');
-                const badge = control.querySelector('.header-badge');
-                if (badge) badge.remove();
-            } else {
-                quickAction(action);
-            }
-        });
-    });
-}
-
-function initDashboardSearch() {
-    $$('[data-dashboard-search]').forEach(input => {
-        input.addEventListener('input', () => {
-            const query = input.value.trim().toLowerCase();
-            if (!query) return;
-            const matchingSection = Array.from(document.querySelectorAll('.dashboard-section')).find(section => section.textContent.toLowerCase().includes(query));
-            const menuLink = matchingSection && document.querySelector(`.dashboard-menu a[data-section="${matchingSection.dataset.section}"]`);
-            if (menuLink) menuLink.click();
-        });
-    });
-
-    $$('[data-message-search]').forEach(input => {
-        input.addEventListener('input', () => {
-            const query = input.value.trim().toLowerCase();
-            input.closest('.messages-list').querySelectorAll('.message-item').forEach(item => {
-                item.hidden = Boolean(query) && !item.textContent.toLowerCase().includes(query);
-            });
-        });
-    });
-}
-
-function initSettingsForm() {
-    const form = $('#settingsForm');
-    if (!form) return;
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const inputs = form.querySelectorAll('input');
-        const studioName = inputs[0].value.trim();
-        if (!studioName) {
-            showToast('Studio name is required.', 'error');
-            return;
-        }
-        localStorage.setItem('sweetcraftSettings', JSON.stringify({ studioName, notifications: form.querySelector('select').value, workingHours: inputs[1].value.trim() }));
-        showToast('Settings saved successfully.', 'success');
-    });
-}
-
 function enrollCourse(courseName) {
     showToast(`Enrolling in ${courseName}...`, 'info');
     setTimeout(() => {
@@ -834,66 +651,6 @@ function scheduleEnroll(batch) {
     setTimeout(() => {
         showToast(`Enrolled in ${batch}! Contact form sent.`, 'success');
     }, 1000);
-}
-
-function deleteItem(itemType, itemName, event) {
-    if (confirm(`Are you sure you want to delete this ${itemType}?`)) {
-        showToast(`${itemName} deleted!`, 'success');
-        const target = event && event.target ? event.target : null;
-        const row = target ? target.closest('tr') : document.querySelector('tr[data-item="' + itemName + '"]');
-        if (row) {
-            row.style.transition = 'all 0.3s';
-            row.style.opacity = '0';
-            setTimeout(() => row.remove(), 300);
-        }
-    }
-}
-
-function editItem(itemType, itemName) {
-    showToast(`Editing ${itemType}: ${itemName}`, 'info');
-}
-
-function viewItem(itemType, itemName) {
-    const existing = $('.item-modal');
-    if (existing) existing.remove();
-    const modal = document.createElement('div');
-    modal.className = 'item-modal';
-    modal.innerHTML = `<div class="item-modal-card" role="dialog" aria-modal="true" aria-label="${itemType} details"><button class="item-modal-close" type="button" aria-label="Close">&times;</button><p class="section-tag">${itemType}</p><h2>${itemName}</h2><p>This is the selected ${itemType.toLowerCase()} record in the SweetCraft dashboard.</p><button class="btn btn-primary item-modal-close" type="button">Close</button></div>`;
-    modal.querySelectorAll('.item-modal-close').forEach(button => button.addEventListener('click', () => modal.remove()));
-    modal.addEventListener('click', event => { if (event.target === modal) modal.remove(); });
-    document.body.appendChild(modal);
-}
-
-function quickAction(action) {
-    switch(action) {
-        case 'add-user':
-            showToast('Opening add user form...', 'info');
-            break;
-        case 'export':
-            downloadDashboardFile('sweetcraft-dashboard-data.csv', 'Customer,Course,Amount,Status\nSarah Lee,French Pastry Essentials,499,Completed\nDaniel Brown,Wedding Cake Mastery,799,Processing\nMeera Nair,Artisan Bread Workshop,349,Pending\n', 'text/csv');
-            showToast('Dashboard data exported.', 'success');
-            break;
-        case 'settings':
-            const settingsLink = document.querySelector('.dashboard-menu a[data-section="settings"]');
-            if (settingsLink) settingsLink.click();
-            break;
-        case 'report':
-            downloadDashboardFile('sweetcraft-performance-report.txt', 'SweetCraft Performance Report\n\nTotal users: 12.4K\nOrders: 4,286\nRevenue: ₹68.2K\nMessages: 1,324\n', 'text/plain');
-            showToast('Performance report generated.', 'success');
-            break;
-        default:
-            showToast(`Action: ${action}`, 'info');
-    }
-}
-
-function downloadDashboardFile(filename, content, type) {
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(new Blob([content], { type }));
-    link.download = filename;
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-    URL.revokeObjectURL(link.href);
 }
 
 function scrollToTop() {
